@@ -6,15 +6,22 @@
 //  Copyright © 2018 luko. All rights reserved.
 //
 
+/* Controller */
+
 import UIKit
 
-class ViewController: UIViewController {
+/* Abstract:
+
+*/
+
+class MediaListViewContoller: UIViewController {
+
+//*****************************************************************
+// MARK: - VC Life Cycle
+//*****************************************************************
 
 	override func viewDidLoad() {
-		super.viewDidLoad()
-		// Do any additional setup after loading the view, typically from a nib.
+		//
 	}
 
-
 }
-

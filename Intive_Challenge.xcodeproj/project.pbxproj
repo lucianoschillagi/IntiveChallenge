@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		998BEE534D0899D896F9D963 /* Pods_Intive_Challenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30CE2A4B7AC8B3BADF16FB6C /* Pods_Intive_Challenge.framework */; };
+		A6AC2904213F04EF009F0A04 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6AC2903213F04EF009F0A04 /* Alamofire.framework */; };
+		A6AC2906213F04EF009F0A04 /* YouTubePlayer_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6AC2905213F04EF009F0A04 /* YouTubePlayer_Swift.framework */; };
 		A6CC40AC213F01E1004357AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CC40AB213F01E1004357AC /* AppDelegate.swift */; };
 		A6CC40AE213F01E1004357AC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CC40AD213F01E1004357AC /* ViewController.swift */; };
 		A6CC40B1213F01E1004357AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6CC40AF213F01E1004357AC /* Main.storyboard */; };
@@ -19,6 +21,8 @@
 		30CE2A4B7AC8B3BADF16FB6C /* Pods_Intive_Challenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Intive_Challenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D60760F1A6E12F947B5CAE1 /* Pods-Intive_Challenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Intive_Challenge.release.xcconfig"; path = "Pods/Target Support Files/Pods-Intive_Challenge/Pods-Intive_Challenge.release.xcconfig"; sourceTree = "<group>"; };
 		9CBF1AA9C4BB2FD957E9E997 /* Pods-Intive_Challenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Intive_Challenge.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Intive_Challenge/Pods-Intive_Challenge.debug.xcconfig"; sourceTree = "<group>"; };
+		A6AC2903213F04EF009F0A04 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A6AC2905213F04EF009F0A04 /* YouTubePlayer_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = YouTubePlayer_Swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6CC40A8213F01E1004357AC /* Intive_Challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Intive_Challenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6CC40AB213F01E1004357AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A6CC40AD213F01E1004357AC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -33,6 +37,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6AC2904213F04EF009F0A04 /* Alamofire.framework in Frameworks */,
+				A6AC2906213F04EF009F0A04 /* YouTubePlayer_Swift.framework in Frameworks */,
 				998BEE534D0899D896F9D963 /* Pods_Intive_Challenge.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -43,6 +49,8 @@
 		2E3F20DDE1029E2F56560DAA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A6AC2903213F04EF009F0A04 /* Alamofire.framework */,
+				A6AC2905213F04EF009F0A04 /* YouTubePlayer_Swift.framework */,
 				30CE2A4B7AC8B3BADF16FB6C /* Pods_Intive_Challenge.framework */,
 			);
 			name = Frameworks;
@@ -353,7 +361,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QE68JBKWWB;
 				INFOPLIST_FILE = Intive_Challenge/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.luko.Intive-Challenge";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -369,7 +381,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QE68JBKWWB;
 				INFOPLIST_FILE = Intive_Challenge/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.luko.Intive-Challenge";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
