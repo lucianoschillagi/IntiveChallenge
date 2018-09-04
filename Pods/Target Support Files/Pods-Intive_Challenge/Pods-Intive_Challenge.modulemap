@@ -1,0 +1,6 @@
+framework module Pods_Intive_Challenge {
+  umbrella header "Pods-Intive_Challenge-umbrella.h"
+
+  export *
+  module * { export * }
+}
