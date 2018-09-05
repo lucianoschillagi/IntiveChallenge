@@ -77,6 +77,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="AT4-5e-9rQ" id="D2I-KE-JJJ"/>
+                                    <outlet property="delegate" destination="AT4-5e-9rQ" id="1b9-p7-baa"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <constraints>
