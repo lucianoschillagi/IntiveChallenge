@@ -31,9 +31,10 @@ struct iTunesMovie {
 	
 	// construye el objeto 'iTunesTVShow' desde un diccionario  👈
 	init(dictionary: [String:AnyObject]) {
-		tituloDePelicula = dictionary["'trackName'"] as? String
-		imagenDePelicula = dictionary["artworkUrl100"] as? String
+		tituloDePelicula = dictionary["trackName"] as? String
 		descripcionPelicula = dictionary["longDescription"] as? String
+		imagenDePelicula = dictionary["artworkUrl100"] as? String
+		
 	}
 	
 	//*****************************************************************
@@ -45,7 +46,7 @@ struct iTunesMovie {
 		
 		var movies = [iTunesMovie]()
 		
-		// itera a través del array de diccionarios, cada ´iTunesTVShow´ es un diccionario
+		// itera a través del array de diccionarios, cada ´iTunesMovie´ es un diccionario
 		for result in moviesResult {
 			movies.append(iTunesMovie(dictionary: result))
 		}

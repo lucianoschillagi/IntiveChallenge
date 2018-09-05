@@ -32,7 +32,7 @@ struct iTunesTVShow {
 	
 		// construye el objeto 'iTunesTVShow' desde un diccionario  👈
 		init(dictionary: [String:AnyObject]) {
-			tituloDelPrograma = dictionary["'artistName'"] as? String
+			tituloDelPrograma = dictionary["artistName"] as? String
 			nombreDelEpisodio = dictionary["trackName"] as? String
 			imagenDelPrograma = dictionary["artworkUrl100"] as? String
 			descripcionEpisodio = dictionary["longDescription"] as? String

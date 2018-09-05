@@ -16,21 +16,23 @@ import UIKit
 
 class MediaListViewContoller: UIViewController {
 	
-	
-	
-	
+
 	//*****************************************************************
 	// MARK: - Properties
 	//*****************************************************************
 	
-	
 	var musicArray = [iTunesMusic]()
+	var tvShowArray = [iTunesTVShow]()
+	var movieArray = [iTunesMovie]()
 	var music: iTunesMusic?
-	//var movie: TMDbMovie?
+	var tvShow: iTunesTVShow?
+	var movie: iTunesMovie?
 	
 	// MARK: Search Controller 🔎
 	let searchController = UISearchController(searchResultsController: nil)
 	
+	// MARK: Las categorías disponibles
+	let category = ["Music": "Music", "TV Show": "TV Show", "Movie": "Movie"]
 	
 	//*****************************************************************
 	// MARK: - IBOutlets
@@ -38,10 +40,6 @@ class MediaListViewContoller: UIViewController {
 	
 	@IBOutlet var mediaTableView: UITableView!
 	
-	
-	
-	
-
 	//*****************************************************************
 	// MARK: - VC Life Cycle
 	//*****************************************************************
@@ -50,7 +48,8 @@ class MediaListViewContoller: UIViewController {
 		
 		// navigation item
 		self.navigationController?.navigationBar.prefersLargeTitles = true
-		navigationItem.title = "Media"
+		navigationItem.title = "Music"
+
 		
 		// delegación
 		configureSearchAndScopeBar()
@@ -65,8 +64,33 @@ class MediaListViewContoller: UIViewController {
 	//*****************************************************************
 	// MARK: - Networking
 	//*****************************************************************
+	
+	func getTVShows() {
+		// networking ⬇ : TV Shows (async)
+		iTunesApiClient.getTVShows { (success, tvShow, error) in
+			
+			DispatchQueue.main.async {
+				
+				if success {
+					// comprueba si el 'popularMovies' recibido contiene algún valor
+					if let tvShow = tvShow {
+						// si es así, se lo asigna a la propiedad ´popularMovies´
+						self.tvShowArray = tvShow  // 🔌 👏
+						//self.stopActivityIndicator()
+						self.mediaTableView.reloadData()
+					}
+				} else {
+					// si devuelve un error
+					self.displayAlertView("Error Request", error)
+				}
+			}
+		}
+	}
+	
+	
+	
 	func getMusic() {
-		// networking ⬇ : Popular Movies
+		// networking ⬇ : Music (async)
 		iTunesApiClient.getMusic { (success, music, error) in
 			
 			DispatchQueue.main.async {
@@ -81,16 +105,37 @@ class MediaListViewContoller: UIViewController {
 					}
 				} else {
 					// si devuelve un error
-					//self.displayAlertView("Error Request", error)
+					self.displayAlertView("Error Request", error)
+				}
+			}
+		}
+	}
+	
+	func getMovies() {
+		// networking ⬇ : Movies (async)
+		iTunesApiClient.getMovies { (success, movies, error) in
+			
+			DispatchQueue.main.async {
+				
+				if success {
+					// comprueba si el 'popularMovies' recibido contiene algún valor
+					if let movies = movies {
+						// si es así, se lo asigna a la propiedad ´popularMovies´
+						self.movieArray = movies // 🔌 👏
+						//self.stopActivityIndicator()
+						self.mediaTableView.reloadData()
+					}
+				} else {
+					// si devuelve un error
+					self.displayAlertView("Error Request", error)
 				}
 			}
 		}
 	}
 	
 	
-	
 	//*****************************************************************
-	// MARK: - Helpers
+	// MARK: - Configure UI Elements
 	//*****************************************************************
 	
 	
@@ -115,78 +160,141 @@ class MediaListViewContoller: UIViewController {
 	
 	// MARK: Status Bar
 	override var prefersStatusBarHidden: Bool { return true }
-
-
-
-
+	
 	//*****************************************************************
-	// MARK: - Search Bar
+	// MARK: - Alert View
 	//*****************************************************************
 	
-// task: decirle al delegado que el index del botón de ´scope´ cambió
-func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+	/**
+	Muestra al usuario un mensaje acerca de porqué la solicitud falló.
 	
-	// test
-	debugPrint("decirle al controller que el índice del botón de ´scope´ cambió")
-	debugPrint("😠 el scope seleccionado es el: \(selectedScope)")
+	- Parameter title: El título del error.
+	- Parameter message: El mensaje acerca del error.
 	
-	// MARK: update navigation title item
-	switch selectedScope {
+	*/
+	func displayAlertView(_ title: String?, _ error: String?) {
 		
-	case 0:
-		self.navigationItem.title = "Music"
-		debugPrint("la scope de Music actualmente")
-		
-	case 1:
-		self.navigationItem.title = "TV Show"
-		debugPrint("la scope de TV Shows actualmente")
-		//getPopularMovies()
-	case 2:
-		self.navigationItem.title = "Movie"
-		debugPrint("la scope de Movie actualmente")
-		//getTopRatedMovies()
-		
-	default:
-		print("")
+		// si ocurre un error en la solicitud, mostrar una vista de alerta!
+		if error != nil {
+			
+			let alertController = UIAlertController(title: title, message: error, preferredStyle: .alert)
+			
+			let OKAction = UIAlertAction(title: "OK", style: .default) { action in
+				
+			}
+			
+			alertController.addAction(OKAction)
+			self.present(alertController, animated: true) {}
+		}
 	}
-}
+	
 
-}
+} // end class
 
 //*****************************************************************
 // MARK: - Table View Data Source Methods
 //*****************************************************************
 
+
 	extension MediaListViewContoller: UITableViewDataSource {
 	
+		// task: determinar cuantas filas tendrá la tabla
 		func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		debugPrint(musicArray.count)
-		return musicArray.count
-	}
+			
+			switch navigationItem.title {
+				
+			// si el título de la barra de navegación es "Explore", contar ´filteredMoviesArray´
+			case category["Music"]:
+				return musicArray.count
+				
+			// si el título de la barra de navegación es "Popular Movies", contar ´popularMoviesArray´
+			case category["TV Show"]:
+				return tvShowArray.count
+				
+			// si el título de la barra de navegación es "Top Rated Movies", contar ´topRatedMoviesArray´
+			case category["Movie"]:
+				return movieArray.count
+				
+			default:
+				print("")
+			}
+			
+			return 0
+		}
+	
 	
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-	
+		
 		let cellReuseId = "cell"
 		let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseId, for: indexPath) as UITableViewCell
-		music = musicArray[(indexPath as NSIndexPath).row]
-		cell.textLabel?.text = music?.tituloCancion
-		cell.detailTextLabel?.text = music?.nombreArtista
 		
-		// poster path (image)
-		if let artworkPath = music?.imagenDelDisco {
-			let _ = iTunesApiClient.getArtworkImage { (imageData, error) in
+			switch navigationItem.title {
 				
-				if let image = UIImage(data: imageData!) {
-					DispatchQueue.main.async {
-						cell.imageView!.image = image
-						debugPrint("👈\(image)")
+				
+		
+			// si el título de la barra de navegación es "Music", mostrar ese grupo en las celdas de la tabla
+			case category["Music"]:
+				music = musicArray[(indexPath as NSIndexPath).row]
+				cell.textLabel?.text = music?.tituloCancion
+				cell.detailTextLabel?.text = music?.nombreArtista
+				// imagen del disco
+				if (music?.imagenDelDisco) != nil {
+						let _ = iTunesApiClient.getArtworkImage { (imageData, error) in
+							if let image = UIImage(data: imageData!) {
+								DispatchQueue.main.async {
+									cell.imageView!.image = image
+									debugPrint("👈\(image)")
+								}
+							} else {
+								print(error ?? "empty error")
+							}
+						}
 					}
-				} else {
-					print(error ?? "empty error")
+				
+		
+			// si el título de la barra de navegación es "TV Show", mostrar ese grupo en las celdas de la tabla
+			case category["TV Show"]:
+				tvShow = tvShowArray[(indexPath as NSIndexPath).row]
+				cell.textLabel?.text = tvShow?.tituloDelPrograma
+				cell.detailTextLabel?.text = tvShow?.nombreDelEpisodio
+				// imagen de la serie
+				if (tvShow?.imagenDelPrograma) != nil {
+					let _ = iTunesApiClient.getArtworkImage { (imageData, error) in
+						if let image = UIImage(data: imageData!) {
+							DispatchQueue.main.async {
+								cell.imageView!.image = image
+								debugPrint("👈\(image)")
+							}
+						} else {
+							print(error ?? "empty error")
+						}
+					}
 				}
+		
+			// si el título de la barra de navegación es "Movie", mostrar ese grupo en las celdas de la tabla
+			case category["Movie"]:
+				movie = movieArray[(indexPath as NSIndexPath).row]
+				cell.textLabel?.text = movie?.tituloDePelicula
+				cell.detailTextLabel?.text = movie?.descripcionPelicula
+				// imagen de la pelíucla
+				if (movie?.imagenDePelicula) != nil {
+					let _ = iTunesApiClient.getArtworkImage { (imageData, error) in
+						if let image = UIImage(data: imageData!) {
+							DispatchQueue.main.async {
+								cell.imageView!.image = image
+								debugPrint("👈\(image)")
+							}
+						} else {
+							print(error ?? "empty error")
+						}
+					}
+				}
+		
+			default:
+				print("")
 			}
-		}
+		
 		
 		// devuelve la celda ya configurada
 		return cell
@@ -194,26 +302,6 @@ func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selec
 		}
 	
 	}
-
-//// poster path (image)
-//if let posterPath = movie?.posterPath {
-//	let _ = TMDbClient.getPosterImage(TMDbClient.ParameterValues.posterSizes[0], filePath: posterPath , { (imageData, error) in
-//		if let image = UIImage(data: imageData!) {
-//			DispatchQueue.main.async {
-//				cell.imageView!.image = image
-//				debugPrint("👈\(image)")
-//			}
-//		} else {
-//			print(error ?? "empty error")
-//		}
-//	})
-//}
-//
-//// devuelve la celda ya configurada
-//return cell
-//
-//}
-
 
 
 //*****************************************************************
@@ -249,4 +337,33 @@ extension MediaListViewContoller:  UISearchResultsUpdating, UISearchBarDelegate 
 	
 	}
 	
+	// task: decirle al delegado que el index del botón de ´scope´ cambió
+	func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+		
+		// test
+		debugPrint("decirle al controller que el índice del botón de ´scope´ cambió")
+		debugPrint("😠 el scope seleccionado es el: \(selectedScope)")
+		
+		// MARK: update navigation title item
+		switch selectedScope {
+			
+		case 0:
+			self.navigationItem.title = "Music"
+			debugPrint("la scope de Music actualmente")
+			getMusic()
+			
+		case 1:
+			self.navigationItem.title = "TV Show"
+			debugPrint("la scope de TV Shows actualmente")
+			getTVShows()
+		case 2:
+			self.navigationItem.title = "Movie"
+			debugPrint("la scope de Movie actualmente")
+			getMovies()
+			
+		default:
+			print("")
+		}
+	}
+
 }
