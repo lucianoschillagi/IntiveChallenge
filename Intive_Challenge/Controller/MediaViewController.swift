@@ -23,6 +23,11 @@ class MediaListViewContoller: UIViewController {
 	// MARK: - Properties
 	//*****************************************************************
 	
+	
+	var musicArray = [iTunesMusic]()
+	var music: iTunesMusic?
+	//var movie: TMDbMovie?
+	
 	// MARK: Search Controller 🔎
 	let searchController = UISearchController(searchResultsController: nil)
 	
@@ -43,14 +48,45 @@ class MediaListViewContoller: UIViewController {
 
 	override func viewDidLoad() {
 		
+		// navigation item
+		self.navigationController?.navigationBar.prefersLargeTitles = true
+		navigationItem.title = "Media"
+		
 		// delegación
 		configureSearchAndScopeBar()
 		mediaTableView.dataSource = self
 		mediaTableView.delegate = self
 
-		
+		getMusic()
 	
 	}
+	
+	
+	//*****************************************************************
+	// MARK: - Networking
+	//*****************************************************************
+	func getMusic() {
+		// networking ⬇ : Popular Movies
+		iTunesApiClient.getMusic { (success, music, error) in
+			
+			DispatchQueue.main.async {
+				
+				if success {
+					// comprueba si el 'popularMovies' recibido contiene algún valor
+					if let music = music {
+						// si es así, se lo asigna a la propiedad ´popularMovies´
+						self.musicArray = music // 🔌 👏
+						//self.stopActivityIndicator()
+						self.mediaTableView.reloadData()
+					}
+				} else {
+					// si devuelve un error
+					//self.displayAlertView("Error Request", error)
+				}
+			}
+		}
+	}
+	
 	
 	
 	//*****************************************************************
@@ -73,20 +109,59 @@ class MediaListViewContoller: UIViewController {
 		
 		// MARK: Configurando el 'Scope Bar'
 		searchController.searchBar.delegate = self
-		let categories = ["Explore", "Popular", "Top Rated", "Upcoming"]
+		let categories = ["Music", "TV Show", "Movie"]
 		searchController.searchBar.scopeButtonTitles = categories
 	}
 	
 	// MARK: Status Bar
 	override var prefersStatusBarHidden: Bool { return true }
+
+
+
+
+	//*****************************************************************
+	// MARK: - Search Bar
+	//*****************************************************************
 	
+// task: decirle al delegado que el index del botón de ´scope´ cambió
+func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
 	
+	// test
+	debugPrint("decirle al controller que el índice del botón de ´scope´ cambió")
+	debugPrint("😠 el scope seleccionado es el: \(selectedScope)")
+	
+	// MARK: update navigation title item
+	switch selectedScope {
+		
+	case 0:
+		self.navigationItem.title = "Music"
+		debugPrint("la scope de Music actualmente")
+		
+	case 1:
+		self.navigationItem.title = "TV Show"
+		debugPrint("la scope de TV Shows actualmente")
+		//getPopularMovies()
+	case 2:
+		self.navigationItem.title = "Movie"
+		debugPrint("la scope de Movie actualmente")
+		//getTopRatedMovies()
+		
+	default:
+		print("")
+	}
 }
-	
+
+}
+
+//*****************************************************************
+// MARK: - Table View Data Source Methods
+//*****************************************************************
+
 	extension MediaListViewContoller: UITableViewDataSource {
 	
 		func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return 10
+		debugPrint(musicArray.count)
+		return musicArray.count
 	}
 	
 	
@@ -94,14 +169,57 @@ class MediaListViewContoller: UIViewController {
 	
 		let cellReuseId = "cell"
 		let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseId, for: indexPath) as UITableViewCell
-		cell.backgroundColor = .yellow
+		music = musicArray[(indexPath as NSIndexPath).row]
+		cell.textLabel?.text = music?.tituloCancion
+		cell.detailTextLabel?.text = music?.nombreArtista
 		
+		// poster path (image)
+		if let artworkPath = music?.imagenDelDisco {
+			let _ = iTunesApiClient.getArtworkImage { (imageData, error) in
+				
+				if let image = UIImage(data: imageData!) {
+					DispatchQueue.main.async {
+						cell.imageView!.image = image
+						debugPrint("👈\(image)")
+					}
+				} else {
+					print(error ?? "empty error")
+				}
+			}
+		}
+		
+		// devuelve la celda ya configurada
 		return cell
-	}
+		
+		}
 	
 	}
-	
-	
+
+//// poster path (image)
+//if let posterPath = movie?.posterPath {
+//	let _ = TMDbClient.getPosterImage(TMDbClient.ParameterValues.posterSizes[0], filePath: posterPath , { (imageData, error) in
+//		if let image = UIImage(data: imageData!) {
+//			DispatchQueue.main.async {
+//				cell.imageView!.image = image
+//				debugPrint("👈\(image)")
+//			}
+//		} else {
+//			print(error ?? "empty error")
+//		}
+//	})
+//}
+//
+//// devuelve la celda ya configurada
+//return cell
+//
+//}
+
+
+
+//*****************************************************************
+// MARK: - Table View Delegate Methods
+//*****************************************************************
+
 	extension MediaListViewContoller: UITableViewDelegate {
 	
 	// task: navegar hacia el detalle de la película (de acuerdo al listado de películas actual)
@@ -118,21 +236,17 @@ class MediaListViewContoller: UIViewController {
 
 }
 
+//*****************************************************************
+// MARK: - Search Methods
+//*****************************************************************
+
 extension MediaListViewContoller:  UISearchResultsUpdating, UISearchBarDelegate  {
 
 	
 	
 	func updateSearchResults(for searchController: UISearchController) {
+		
 	
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 }
