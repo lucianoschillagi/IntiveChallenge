@@ -21,15 +21,16 @@ class MediaListViewContoller: UIViewController {
 	// MARK: - Properties
 	//*****************************************************************
 	
-	var musicArray = [iTunesMusic]()
-	var tvShowArray = [iTunesTVShow]()
-	var movieArray = [iTunesMovie]()
-	var music: iTunesMusic?
-	var tvShow: iTunesTVShow?
-	var movie: iTunesMovie?
+	var mediaArray = [iTunesMedia]()
+	var media: iTunesMedia?
+
 	
 	// MARK: Search Controller 🔎
 	let searchController = UISearchController(searchResultsController: nil)
+	
+	var filteredMediaArray = [iTunesMedia]() 
+	
+	
 	
 	// MARK: Las categorías disponibles
 	let category = ["Music": "Music", "TV Show": "TV Show", "Movie": "Movie"]
@@ -54,7 +55,7 @@ class MediaListViewContoller: UIViewController {
 		// delegación
 		configureSearchAndScopeBar()
 
-		getMusic()
+		//getMusic()
 	
 	}
 	

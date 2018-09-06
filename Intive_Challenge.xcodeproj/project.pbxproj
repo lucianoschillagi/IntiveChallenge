@@ -11,12 +11,10 @@
 		A616C3E32140947D0087FE6C /* MediaTable_VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A616C3E22140947D0087FE6C /* MediaTable_VC.swift */; };
 		A616C3E52140948B0087FE6C /* MediaSearch_VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A616C3E42140948B0087FE6C /* MediaSearch_VC.swift */; };
 		A616C3E8214094E80087FE6C /* MediaNetworking_VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A616C3E7214094E80087FE6C /* MediaNetworking_VC.swift */; };
+		A616C3EC2140BDEC0087FE6C /* iTunesMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = A616C3EB2140BDEC0087FE6C /* iTunesMedia.swift */; };
 		A6AC2904213F04EF009F0A04 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6AC2903213F04EF009F0A04 /* Alamofire.framework */; };
 		A6AC2906213F04EF009F0A04 /* YouTubePlayer_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6AC2905213F04EF009F0A04 /* YouTubePlayer_Swift.framework */; };
 		A6AC2908213F0A21009F0A04 /* DetailMediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6AC2907213F0A21009F0A04 /* DetailMediaViewController.swift */; };
-		A6AC290F213F0AF8009F0A04 /* ITunesTVShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6AC290E213F0AF8009F0A04 /* ITunesTVShow.swift */; };
-		A6AC2911213F0B23009F0A04 /* ITunesMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6AC2910213F0B23009F0A04 /* ITunesMovie.swift */; };
-		A6AC2913213F0B41009F0A04 /* iTunesMusic.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6AC2912213F0B41009F0A04 /* iTunesMusic.swift */; };
 		A6AC2915213F0B8C009F0A04 /* iTunesClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6AC2914213F0B8C009F0A04 /* iTunesClient.swift */; };
 		A6AC2917213F0BA4009F0A04 /* iTunesConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6AC2916213F0BA4009F0A04 /* iTunesConstants.swift */; };
 		A6CC40AC213F01E1004357AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CC40AB213F01E1004357AC /* AppDelegate.swift */; };
@@ -33,12 +31,10 @@
 		A616C3E22140947D0087FE6C /* MediaTable_VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaTable_VC.swift; sourceTree = "<group>"; };
 		A616C3E42140948B0087FE6C /* MediaSearch_VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaSearch_VC.swift; sourceTree = "<group>"; };
 		A616C3E7214094E80087FE6C /* MediaNetworking_VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaNetworking_VC.swift; sourceTree = "<group>"; };
+		A616C3EB2140BDEC0087FE6C /* iTunesMedia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunesMedia.swift; sourceTree = "<group>"; };
 		A6AC2903213F04EF009F0A04 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6AC2905213F04EF009F0A04 /* YouTubePlayer_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = YouTubePlayer_Swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6AC2907213F0A21009F0A04 /* DetailMediaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMediaViewController.swift; sourceTree = "<group>"; };
-		A6AC290E213F0AF8009F0A04 /* ITunesTVShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ITunesTVShow.swift; sourceTree = "<group>"; };
-		A6AC2910213F0B23009F0A04 /* ITunesMovie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ITunesMovie.swift; sourceTree = "<group>"; };
-		A6AC2912213F0B41009F0A04 /* iTunesMusic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunesMusic.swift; sourceTree = "<group>"; };
 		A6AC2914213F0B8C009F0A04 /* iTunesClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunesClient.swift; sourceTree = "<group>"; };
 		A6AC2916213F0BA4009F0A04 /* iTunesConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunesConstants.swift; sourceTree = "<group>"; };
 		A6CC40A8213F01E1004357AC /* Intive_Challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Intive_Challenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,9 +101,7 @@
 		A6AC290A213F0A9F009F0A04 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				A6AC290E213F0AF8009F0A04 /* ITunesTVShow.swift */,
-				A6AC2910213F0B23009F0A04 /* ITunesMovie.swift */,
-				A6AC2912213F0B41009F0A04 /* iTunesMusic.swift */,
+				A616C3EB2140BDEC0087FE6C /* iTunesMedia.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -304,13 +298,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				A616C3E32140947D0087FE6C /* MediaTable_VC.swift in Sources */,
-				A6AC290F213F0AF8009F0A04 /* ITunesTVShow.swift in Sources */,
-				A6AC2911213F0B23009F0A04 /* ITunesMovie.swift in Sources */,
 				A6CC40AE213F01E1004357AC /* MediaViewController.swift in Sources */,
 				A616C3E8214094E80087FE6C /* MediaNetworking_VC.swift in Sources */,
-				A6AC2913213F0B41009F0A04 /* iTunesMusic.swift in Sources */,
 				A6AC2908213F0A21009F0A04 /* DetailMediaViewController.swift in Sources */,
 				A6AC2917213F0BA4009F0A04 /* iTunesConstants.swift in Sources */,
+				A616C3EC2140BDEC0087FE6C /* iTunesMedia.swift in Sources */,
 				A6AC2915213F0B8C009F0A04 /* iTunesClient.swift in Sources */,
 				A6CC40AC213F01E1004357AC /* AppDelegate.swift in Sources */,
 				A616C3E52140948B0087FE6C /* MediaSearch_VC.swift in Sources */,

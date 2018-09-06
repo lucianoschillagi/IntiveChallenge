@@ -23,15 +23,15 @@ extension MediaListViewContoller: UITableViewDataSource {
 			
 		// si el título de la barra de navegación es "Explore", contar ´filteredMoviesArray´
 		case category["Music"]:
-			return musicArray.count
+			return mediaArray.count
 			
 		// si el título de la barra de navegación es "Popular Movies", contar ´popularMoviesArray´
 		case category["TV Show"]:
-			return tvShowArray.count
+			return mediaArray.count
 			
 		// si el título de la barra de navegación es "Top Rated Movies", contar ´topRatedMoviesArray´
 		case category["Movie"]:
-			return movieArray.count
+			return mediaArray.count
 			
 		default:
 			print("")
@@ -63,28 +63,28 @@ extension MediaListViewContoller: UITableViewDataSource {
 			
 		// si el título de la barra de navegación es "Music", mostrar ese grupo en las celdas de la tabla
 		case category["Music"]:
-			music = musicArray[(indexPath as NSIndexPath).row]
-			cell.textLabel?.text = music?.tituloCancion
-			cell.detailTextLabel?.text = music?.nombreArtista
+			media = mediaArray[(indexPath as NSIndexPath).row]
+			cell.textLabel?.text = media?.tituloCancion
+			cell.detailTextLabel?.text = media?.nombreArtista
 			// imagen del disco
-			if (music?.imagenDelDisco) != nil { getImage }
+			if (media?.imagenDisco) != nil { getImage }
 			
 			
 		// si el título de la barra de navegación es "TV Show", mostrar ese grupo en las celdas de la tabla
 		case category["TV Show"]:
-			tvShow = tvShowArray[(indexPath as NSIndexPath).row]
-			cell.textLabel?.text = tvShow?.tituloDelPrograma
-			cell.detailTextLabel?.text = tvShow?.nombreDelEpisodio
+			media = mediaArray[(indexPath as NSIndexPath).row]
+			cell.textLabel?.text = media?.tituloDelPrograma
+			cell.detailTextLabel?.text = media?.nombreDelEpisodio
 			// imagen de la serie
-			if (tvShow?.imagenDelPrograma) != nil { getImage }
+			if (media?.imagenDelPrograma) != nil { getImage }
 			
 		// si el título de la barra de navegación es "Movie", mostrar ese grupo en las celdas de la tabla
 		case category["Movie"]:
-			movie = movieArray[(indexPath as NSIndexPath).row]
-			cell.textLabel?.text = movie?.tituloDePelicula
-			cell.detailTextLabel?.text = movie?.descripcionPelicula
+			media = mediaArray[(indexPath as NSIndexPath).row]
+			cell.textLabel?.text = media?.tituloDeLaPelicula
+			cell.detailTextLabel?.text = media?.descripcionPelicula
 			// imagen de la película
-			if (movie?.imagenDePelicula) != nil { getImage }
+			if (media?.imagenPelicula) != nil { getImage }
 			
 		default:
 			print("")
