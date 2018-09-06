@@ -14,12 +14,8 @@ import UIKit
 
 extension MediaListViewContoller:  UISearchResultsUpdating, UISearchBarDelegate  {
 	
-	
-	
-	func updateSearchResults(for searchController: UISearchController) {
-		
-		
-	}
+	// task: actualizar los resultados según la búsqueda actual
+	func updateSearchResults(for searchController: UISearchController) {}
 	
 	// task: decirle al delegado que el index del botón de ´scope´ cambió
 	func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
@@ -38,11 +34,10 @@ extension MediaListViewContoller:  UISearchResultsUpdating, UISearchBarDelegate 
 		case 1:
 			self.navigationItem.title = "TV Show"
 			debugPrint("la scope de TV Shows actualmente")
-			//getTVShows()
+
 		case 2:
 			self.navigationItem.title = "Movie"
 			debugPrint("la scope de Movie actualmente")
-			//getMovies()
 			
 		default:
 			print("")
@@ -56,9 +51,6 @@ extension MediaListViewContoller:  UISearchResultsUpdating, UISearchBarDelegate 
 		return searchController.searchBar.text?.isEmpty ?? true
 	}
 	
-
-	
-	
 	// task: le dice al controlador que el usuario cambió el texto de la barra de búsqueda
 	// cada vez que el texto de búsqueda cambia se cancela la descarga actual y empieza una nueva 👈
 	func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -69,24 +61,53 @@ extension MediaListViewContoller:  UISearchResultsUpdating, UISearchBarDelegate 
 			
 		// si el título de la barra de navegación es "Explore", contar ´filteredMoviesArray´
 		case category["Music"]:
-			getSearchTextMedia("music", searchText)
+			debugPrint("el scope está en: music")
+			// almancena el texto de búsqueda actual en la propiedad ´searchTextFinal´
+			searchTextFinal = searchText
+			//getSearchTextMedia("music", searchText)
 	
 			
 		// si el título de la barra de navegación es "Popular Movies", contar ´popularMoviesArray´
 		case category["TV Show"]:
-			getSearchTextMedia("tvShow", searchText)
+			debugPrint("el scope está en: tv show")
+			// almancena el texto de búsqueda actual en la propiedad ´searchTextFinal´
+			searchTextFinal = searchText
+			//getSearchTextMedia("tvShow", searchText)
 			
 		// si el título de la barra de navegación es "Top Rated Movies", contar ´topRatedMoviesArray´
 		case category["Movie"]:
-			getSearchTextMedia("movie", searchText)
+			debugPrint("el scope está en: movie")
+			// almancena el texto de búsqueda actual en la propiedad ´searchTextFinal´
+			searchTextFinal = searchText
+			//getSearchTextMedia("movie", searchText)
 			
 		default:
 			print("")
 		}
 
+
 	}
 	
 	
+	// task: captura el 'search text' a enviar en la solicitud web cuando el usuario tapea el botón ´search´
+	func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+		
+		var actualMedia = String()
+		
+		switch searchBar.selectedScopeButtonIndex {
+		case 0:
+			actualMedia = "music"
+		case 1:
+			actualMedia = "tvShow"
+		case 2:
+			actualMedia = "movie"
+		default:
+			actualMedia = ""
+		}
+		getSearchTextMedia(actualMedia, searchTextFinal)
+	}
+	
+
 	
 	
 } // end ext

@@ -30,7 +30,9 @@ class MediaListViewContoller: UIViewController {
 	
 	var filteredMediaArray = [iTunesMedia]() 
 	
-	
+	// search text
+	var searchTextFinal = String()
+
 	
 	// MARK: Las categorías disponibles
 	let category = ["Music": "Music", "TV Show": "TV Show", "Movie": "Movie"]
@@ -73,6 +75,8 @@ class MediaListViewContoller: UIViewController {
 		searchController.searchResultsUpdater = self
 		// no oscurecer el fondo cuando se presentan los resultados
 		searchController.obscuresBackgroundDuringPresentation = false
+		
+		
 		// agrega la barra de búsqueda dentro de la barra de navegación
 		navigationItem.searchController = searchController
 		// para que no permanezca la barra de búsqueda si el usuario navega hacia otro vc
@@ -85,7 +89,7 @@ class MediaListViewContoller: UIViewController {
 	}
 	
 	// MARK: Status Bar
-	override var prefersStatusBarHidden: Bool { return true }
+	//override var prefersStatusBarHidden: Bool { return true }
 	
 	//*****************************************************************
 	// MARK: - Alert View

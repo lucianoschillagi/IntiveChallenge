@@ -83,6 +83,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="coc-GC-ssR" secondAttribute="trailing" id="JLt-uZ-cxJ"/>
                             <constraint firstItem="coc-GC-ssR" firstAttribute="top" secondItem="829-jh-fen" secondAttribute="top" id="Qja-ed-UiT"/>
