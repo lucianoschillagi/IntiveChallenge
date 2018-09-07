@@ -81,8 +81,6 @@ extension MediaListViewContoller:  UISearchResultsUpdating, UISearchBarDelegate 
 		default:
 			print("")
 		}
-
-
 	}
 	
 	
@@ -104,8 +102,5 @@ extension MediaListViewContoller:  UISearchResultsUpdating, UISearchBarDelegate 
 		}
 		getSearchTextMedia(actualMedia, searchTextFinal)
 	}
-	
 
-	
-	
 } // end ext

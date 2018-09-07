@@ -82,6 +82,4 @@ struct iTunesMedia {
 		return mediaArray
 	}
 	
-	
-	
 } // end class

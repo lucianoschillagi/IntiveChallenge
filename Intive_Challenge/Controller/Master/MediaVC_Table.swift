@@ -9,6 +9,7 @@
 import UIKit
 
 
+
 //*****************************************************************
 // MARK: - Table View Data Source Methods
 //*****************************************************************
@@ -137,22 +138,16 @@ extension MediaListViewContoller: UITableViewDelegate {
 		switch navigationItem.title {
 		
 			case category["Music"]:
-				let storyboardId = "play song detail"
-				let controller = storyboard!.instantiateViewController(withIdentifier: storyboardId) as! DetailPlaySongViewController
-				controller.selectedMedia = filteredMediaArray[(indexPath as NSIndexPath).row]
-				navigationController!.pushViewController(controller, animated: true)
-		
+				selectedMedia = filteredMediaArray[(indexPath as NSIndexPath).row]
+				playSong()
+			
 			case category["TV Show"]:
-				let storyboardId = "trailer detail"
-				let controller = storyboard!.instantiateViewController(withIdentifier: storyboardId) as! DetailTrailerViewController
-				controller.selectedMedia = filteredMediaArray[(indexPath as NSIndexPath).row]
-				navigationController!.pushViewController(controller, animated: true)
-		
+				selectedMedia = filteredMediaArray[(indexPath as NSIndexPath).row]
+				showTrailer()
+
 			case category["Movie"]:
-				let storyboardId = "trailer detail"
-				let controller = storyboard!.instantiateViewController(withIdentifier: storyboardId) as! DetailTrailerViewController
-				controller.selectedMedia = filteredMediaArray[(indexPath as NSIndexPath).row]
-				navigationController!.pushViewController(controller, animated: true)
+				selectedMedia = filteredMediaArray[(indexPath as NSIndexPath).row]
+				showTrailer()
 		
 			default:
 				print("")
@@ -160,7 +155,7 @@ extension MediaListViewContoller: UITableViewDelegate {
 
 	}
 	
-	
+
 } // end ext
 
 

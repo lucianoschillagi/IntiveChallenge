@@ -9,6 +9,8 @@
 /* Controller */
 
 import UIKit
+import AVFoundation
+import AVKit
 
 /* Abstract:
 
@@ -21,18 +23,13 @@ class MediaListViewContoller: UIViewController {
 	// MARK: - Properties
 	//*****************************************************************
 	
-	//var mediaArray = [iTunesMedia]()
-	var media: iTunesMedia?
-
 	
-	// MARK: Search Controller 🔎
 	let searchController = UISearchController(searchResultsController: nil)
-	
-	var filteredMediaArray = [iTunesMedia]() 
-	
-	// search text
 	var searchTextFinal = String()
-
+	
+	var media: iTunesMedia?
+	var filteredMediaArray = [iTunesMedia]()
+	var selectedMedia: iTunesMedia?
 	
 	// MARK: Las categorías disponibles
 	let category = ["Music": "Music", "TV Show": "TV Show", "Movie": "Movie"]
@@ -53,19 +50,13 @@ class MediaListViewContoller: UIViewController {
 		self.navigationController?.navigationBar.prefersLargeTitles = true
 		navigationItem.title = "Music"
 
-		
-		// delegación
 		configureSearchAndScopeBar()
-
-		//getMusic()
-	
 	}
 	
 	
 	//*****************************************************************
 	// MARK: - Configure UI Elements
 	//*****************************************************************
-	
 	
 	// task: configurar la barra de búsqueda y la barra de alcance (search & scope bar)
 	func configureSearchAndScopeBar() {
@@ -118,7 +109,37 @@ class MediaListViewContoller: UIViewController {
 		}
 	}
 	
+	//*****************************************************************
+	// MARK: - Segue -> Trailer or Song
+	//*****************************************************************
 	
+	// task: ---
+	func showTrailer() {
+		guard let videoString = selectedMedia?.trailerPelicula else { return }
+		guard let videoURL = URL(string: videoString) else { return }
+		let player = AVPlayer(url: videoURL)
+		let playerViewController = AVPlayerViewController()
+		playerViewController.player = player
+		// presentar el vc siguiente 🔜
+		self.present(playerViewController, animated: true) {
+			playerViewController.player?.play()
+		}
+	}
+	
+	
+	// task: reproducir la canción seleccionada
+	func playSong() {
+		guard let songString = selectedMedia?.reproducirCancion else { return }
+		guard let songUrl = URL(string: songString) else { return }
+		let player = AVPlayer(url: songUrl)
+		let playerViewController = AVPlayerViewController()
+		playerViewController.player = player
+		// presentar el vc siguiente 🔜
+		self.present(playerViewController, animated: true) {
+			playerViewController.player?.play()
+		}
+	
+	}
 	
 
 } // end class

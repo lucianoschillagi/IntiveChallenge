@@ -14,7 +14,6 @@ extension MediaListViewContoller {
 	// MARK: - Networking
 	//*****************************************************************
 	
-
 	// MARK: Get Search Text Movies
 	// task: obtener, mediante una solicitud web a la API de TMDb, el array de películas filtradas por texto
 	func getSearchTextMedia(_ media: String, _ term: String) {

@@ -8,14 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		998BEE534D0899D896F9D963 /* Pods_Intive_Challenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30CE2A4B7AC8B3BADF16FB6C /* Pods_Intive_Challenge.framework */; };
-		A604B23E214301AC0079B8B5 /* DetailVC_PlaySong.swift in Sources */ = {isa = PBXBuildFile; fileRef = A604B23D214301AC0079B8B5 /* DetailVC_PlaySong.swift */; };
 		A616C3E32140947D0087FE6C /* MediaVC_Table.swift in Sources */ = {isa = PBXBuildFile; fileRef = A616C3E22140947D0087FE6C /* MediaVC_Table.swift */; };
 		A616C3E52140948B0087FE6C /* MediaVC_Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = A616C3E42140948B0087FE6C /* MediaVC_Search.swift */; };
 		A616C3E8214094E80087FE6C /* MediaVC_Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = A616C3E7214094E80087FE6C /* MediaVC_Networking.swift */; };
 		A616C3EC2140BDEC0087FE6C /* iTunesMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = A616C3EB2140BDEC0087FE6C /* iTunesMedia.swift */; };
 		A6AC2904213F04EF009F0A04 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6AC2903213F04EF009F0A04 /* Alamofire.framework */; };
 		A6AC2906213F04EF009F0A04 /* YouTubePlayer_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6AC2905213F04EF009F0A04 /* YouTubePlayer_Swift.framework */; };
-		A6AC2908213F0A21009F0A04 /* DetailVC_Trailer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6AC2907213F0A21009F0A04 /* DetailVC_Trailer.swift */; };
 		A6AC2915213F0B8C009F0A04 /* iTunesClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6AC2914213F0B8C009F0A04 /* iTunesClient.swift */; };
 		A6AC2917213F0BA4009F0A04 /* iTunesConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6AC2916213F0BA4009F0A04 /* iTunesConstants.swift */; };
 		A6CC40AC213F01E1004357AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CC40AB213F01E1004357AC /* AppDelegate.swift */; };
@@ -29,14 +27,12 @@
 		30CE2A4B7AC8B3BADF16FB6C /* Pods_Intive_Challenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Intive_Challenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D60760F1A6E12F947B5CAE1 /* Pods-Intive_Challenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Intive_Challenge.release.xcconfig"; path = "Pods/Target Support Files/Pods-Intive_Challenge/Pods-Intive_Challenge.release.xcconfig"; sourceTree = "<group>"; };
 		9CBF1AA9C4BB2FD957E9E997 /* Pods-Intive_Challenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Intive_Challenge.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Intive_Challenge/Pods-Intive_Challenge.debug.xcconfig"; sourceTree = "<group>"; };
-		A604B23D214301AC0079B8B5 /* DetailVC_PlaySong.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC_PlaySong.swift; sourceTree = "<group>"; };
 		A616C3E22140947D0087FE6C /* MediaVC_Table.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaVC_Table.swift; sourceTree = "<group>"; };
 		A616C3E42140948B0087FE6C /* MediaVC_Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaVC_Search.swift; sourceTree = "<group>"; };
 		A616C3E7214094E80087FE6C /* MediaVC_Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaVC_Networking.swift; sourceTree = "<group>"; };
 		A616C3EB2140BDEC0087FE6C /* iTunesMedia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunesMedia.swift; sourceTree = "<group>"; };
 		A6AC2903213F04EF009F0A04 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6AC2905213F04EF009F0A04 /* YouTubePlayer_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = YouTubePlayer_Swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A6AC2907213F0A21009F0A04 /* DetailVC_Trailer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC_Trailer.swift; sourceTree = "<group>"; };
 		A6AC2914213F0B8C009F0A04 /* iTunesClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunesClient.swift; sourceTree = "<group>"; };
 		A6AC2916213F0BA4009F0A04 /* iTunesConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunesConstants.swift; sourceTree = "<group>"; };
 		A6CC40A8213F01E1004357AC /* Intive_Challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Intive_Challenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -83,20 +79,10 @@
 			path = Master;
 			sourceTree = "<group>";
 		};
-		A616C3E6214094910087FE6C /* Detail */ = {
-			isa = PBXGroup;
-			children = (
-				A6AC2907213F0A21009F0A04 /* DetailVC_Trailer.swift */,
-				A604B23D214301AC0079B8B5 /* DetailVC_PlaySong.swift */,
-			);
-			path = Detail;
-			sourceTree = "<group>";
-		};
 		A6AC2909213F0A27009F0A04 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				A616C3E1214094530087FE6C /* Master */,
-				A616C3E6214094910087FE6C /* Detail */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -107,14 +93,6 @@
 				A616C3EB2140BDEC0087FE6C /* iTunesMedia.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		A6AC290B213F0ABD009F0A04 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = View;
-			path = ..;
 			sourceTree = "<group>";
 		};
 		A6AC290C213F0AD4009F0A04 /* Networking */ = {
@@ -170,7 +148,6 @@
 				A6CC40AB213F01E1004357AC /* AppDelegate.swift */,
 				A6AC2909213F0A27009F0A04 /* Controller */,
 				A6AC290A213F0A9F009F0A04 /* Model */,
-				A6AC290B213F0ABD009F0A04 /* View */,
 				A6AC290C213F0AD4009F0A04 /* Networking */,
 				A6AC290D213F0ADB009F0A04 /* Resources */,
 			);
@@ -302,9 +279,7 @@
 			files = (
 				A616C3E32140947D0087FE6C /* MediaVC_Table.swift in Sources */,
 				A6CC40AE213F01E1004357AC /* MediaVC_Master.swift in Sources */,
-				A604B23E214301AC0079B8B5 /* DetailVC_PlaySong.swift in Sources */,
 				A616C3E8214094E80087FE6C /* MediaVC_Networking.swift in Sources */,
-				A6AC2908213F0A21009F0A04 /* DetailVC_Trailer.swift in Sources */,
 				A6AC2917213F0BA4009F0A04 /* iTunesConstants.swift in Sources */,
 				A616C3EC2140BDEC0087FE6C /* iTunesMedia.swift in Sources */,
 				A6AC2915213F0B8C009F0A04 /* iTunesClient.swift in Sources */,
