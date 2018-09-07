@@ -1,5 +1,5 @@
 //
-//  MediaSearch_VC.swift
+//  MediaVC_Search.swift
 //  Intive_Challenge
 //
 //  Created by Luciano Schillagi on 05/09/2018.
@@ -64,7 +64,6 @@ extension MediaListViewContoller:  UISearchResultsUpdating, UISearchBarDelegate 
 			debugPrint("el scope está en: music")
 			// almancena el texto de búsqueda actual en la propiedad ´searchTextFinal´
 			searchTextFinal = searchText
-			//getSearchTextMedia("music", searchText)
 	
 			
 		// si el título de la barra de navegación es "Popular Movies", contar ´popularMoviesArray´
@@ -72,14 +71,12 @@ extension MediaListViewContoller:  UISearchResultsUpdating, UISearchBarDelegate 
 			debugPrint("el scope está en: tv show")
 			// almancena el texto de búsqueda actual en la propiedad ´searchTextFinal´
 			searchTextFinal = searchText
-			//getSearchTextMedia("tvShow", searchText)
-			
+
 		// si el título de la barra de navegación es "Top Rated Movies", contar ´topRatedMoviesArray´
 		case category["Movie"]:
 			debugPrint("el scope está en: movie")
 			// almancena el texto de búsqueda actual en la propiedad ´searchTextFinal´
 			searchTextFinal = searchText
-			//getSearchTextMedia("movie", searchText)
 			
 		default:
 			print("")
@@ -99,6 +96,7 @@ extension MediaListViewContoller:  UISearchResultsUpdating, UISearchBarDelegate 
 			actualMedia = "music"
 		case 1:
 			actualMedia = "tvShow"
+			print("hola")
 		case 2:
 			actualMedia = "movie"
 		default:

@@ -1,5 +1,5 @@
 //
-//  MediaNetworking_VC.swift
+//  MediaVC_Networking.swift
 //  Intive_Challenge
 //
 //  Created by Luciano Schillagi on 05/09/2018.

@@ -1,5 +1,5 @@
 //
-//  MediaTable_VC.swift
+//  MediaVC_Table.swift
 //  Intive_Challenge
 //
 //  Created by Luciano Schillagi on 05/09/2018.
@@ -98,6 +98,7 @@ extension MediaListViewContoller: UITableViewDataSource {
 						
 						if let image = UIImage(data: imageData!) {
 							DispatchQueue.main.async {
+								cell.imageView?.contentMode = UIView.ContentMode.scaleAspectFit
 								cell.imageView!.image = image
 								debugPrint("👈\(image)")
 							}
@@ -132,10 +133,34 @@ extension MediaListViewContoller: UITableViewDelegate {
 		// test
 		debugPrint("la fila \(indexPath) ha sido seleccionada")
 		
-		let storyboardId = "media detail"
-		let controller = storyboard!.instantiateViewController(withIdentifier: storyboardId) as! DetailMediaViewController
-		navigationController!.pushViewController(controller, animated: true)
+		
+		switch navigationItem.title {
+		
+			case category["Music"]:
+				let storyboardId = "play song detail"
+				let controller = storyboard!.instantiateViewController(withIdentifier: storyboardId) as! DetailPlaySongViewController
+				controller.selectedMedia = filteredMediaArray[(indexPath as NSIndexPath).row]
+				navigationController!.pushViewController(controller, animated: true)
+		
+			case category["TV Show"]:
+				let storyboardId = "trailer detail"
+				let controller = storyboard!.instantiateViewController(withIdentifier: storyboardId) as! DetailTrailerViewController
+				controller.selectedMedia = filteredMediaArray[(indexPath as NSIndexPath).row]
+				navigationController!.pushViewController(controller, animated: true)
+		
+			case category["Movie"]:
+				let storyboardId = "trailer detail"
+				let controller = storyboard!.instantiateViewController(withIdentifier: storyboardId) as! DetailTrailerViewController
+				controller.selectedMedia = filteredMediaArray[(indexPath as NSIndexPath).row]
+				navigationController!.pushViewController(controller, animated: true)
+		
+			default:
+				print("")
+			}
+
 	}
 	
 	
 } // end ext
+
+

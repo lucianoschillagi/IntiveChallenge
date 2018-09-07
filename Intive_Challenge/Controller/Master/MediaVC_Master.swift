@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MediaVC_Master.swift
 //  Intive_Challenge
 //
 //  Created by Luciano Schillagi on 04/09/2018.
@@ -117,6 +117,8 @@ class MediaListViewContoller: UIViewController {
 			self.present(alertController, animated: true) {}
 		}
 	}
+	
+	
 	
 
 } // end class

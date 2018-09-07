@@ -26,14 +26,17 @@ struct iTunesMedia {
 	let nombreDelEpisodio: String? // 'trackName'
 	let imagenDelPrograma: String? // 'artworkUrl100'
 	let descripcionEpisodio: String? // 'longDescription'
+	let trailerEpisodio: String? // 'previewUrl'
 	// movie
 	let tituloDeLaPelicula: String? // 'trackName'
 	let descripcionPelicula: String? // 'longDescription'
 	let imagenPelicula: String? // 'artworkUrl100'
+	let trailerPelicula: String? // 'previewUrl'
 	// music
 	let tituloCancion: String? // 'trackName'
 	let nombreArtista: String? // 'artistName'
 	let imagenDisco: String? // 'artworkUrl100'
+	let reproducirCancion: String? // 'previewUrl'
 	
 	//*****************************************************************
 	// MARK: - Initializers
@@ -46,14 +49,20 @@ struct iTunesMedia {
 		nombreDelEpisodio = dictionary["trackName"] as? String
 		imagenDelPrograma = dictionary["artworkUrl100"] as? String
 		descripcionEpisodio = dictionary["longDescription"] as? String
+		trailerEpisodio = dictionary["previewUrl"] as? String
+		
 		// movie
 		tituloDeLaPelicula = dictionary["trackName"] as? String
 		descripcionPelicula = dictionary["longDescription"] as? String
 		imagenPelicula = dictionary["artworkUrl100"] as? String
+		trailerPelicula = dictionary["previewUrl"] as? String
+
 		// music
 		tituloCancion = dictionary["trackName"] as? String
 		nombreArtista = dictionary["artistName"] as? String
 		imagenDisco = dictionary["artworkUrl100"] as? String
+		reproducirCancion = dictionary["previewUrl"] as? String
+
 	}
 	
 	//*****************************************************************

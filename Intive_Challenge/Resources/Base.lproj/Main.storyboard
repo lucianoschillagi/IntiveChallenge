@@ -10,20 +10,60 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Detail Media View Controller-->
+        <!--Detail Trailer View Controller-->
         <scene sceneID="7Ag-Gr-vmJ">
             <objects>
-                <viewController storyboardIdentifier="media detail" id="Ct5-dm-FRR" customClass="DetailMediaViewController" customModule="Intive_Challenge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="trailer detail" id="Ct5-dm-FRR" customClass="DetailTrailerViewController" customModule="Intive_Challenge" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JlH-TU-xCe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="0.64197011589999997" blue="0.60456819309999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nj8-Wt-Nct" customClass="YouTubePlayerView" customModule="YouTubePlayer_Swift">
+                                <rect key="frame" x="0.0" y="151" width="375" height="273"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="LGq-0r-aDn">
+                                        <rect key="frame" x="177.5" y="126.5" width="20" height="20"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="LGq-0r-aDn" firstAttribute="centerY" secondItem="Nj8-Wt-Nct" secondAttribute="centerY" id="SBP-mO-97F"/>
+                                    <constraint firstItem="LGq-0r-aDn" firstAttribute="centerX" secondItem="Nj8-Wt-Nct" secondAttribute="centerX" id="s5R-4o-JUR"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <constraints>
+                            <constraint firstItem="Nj8-Wt-Nct" firstAttribute="leading" secondItem="JlH-TU-xCe" secondAttribute="leading" id="5RC-tz-OKA"/>
+                            <constraint firstItem="oca-NG-ZBu" firstAttribute="bottom" secondItem="Nj8-Wt-Nct" secondAttribute="bottom" constant="243" id="98Z-4G-cQa"/>
+                            <constraint firstItem="Nj8-Wt-Nct" firstAttribute="top" secondItem="oca-NG-ZBu" secondAttribute="top" constant="131" id="Izc-FU-tG3"/>
+                            <constraint firstAttribute="trailing" secondItem="Nj8-Wt-Nct" secondAttribute="trailing" id="NXO-Ns-D4J"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="oca-NG-ZBu"/>
                     </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="LGq-0r-aDn" id="ryd-m8-RcC"/>
+                        <outlet property="movieTrailerVideo" destination="Nj8-Wt-Nct" id="waW-3i-OaU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rCZ-hQ-CV9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1807" y="-1"/>
+            <point key="canvasLocation" x="1871" y="-256"/>
+        </scene>
+        <!--Detail Play Song View Controller-->
+        <scene sceneID="tZq-zg-NWS">
+            <objects>
+                <viewController storyboardIdentifier="play song detail" id="LOp-Gl-svv" customClass="DetailPlaySongViewController" customModule="Intive_Challenge" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rIb-kV-Gi8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="0.64197011589999997" blue="0.60456819309999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="k1z-ao-Ju5"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="the-qd-E6K" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1870" y="448"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="c9A-b4-Pf2">
