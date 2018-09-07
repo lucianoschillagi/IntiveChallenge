@@ -75,8 +75,8 @@
 			children = (
 				A6CC40AD213F01E1004357AC /* MediaViewController.swift */,
 				A616C3E7214094E80087FE6C /* MediaNetworking_VC.swift */,
-				A616C3E22140947D0087FE6C /* MediaTable_VC.swift */,
 				A616C3E42140948B0087FE6C /* MediaSearch_VC.swift */,
+				A616C3E22140947D0087FE6C /* MediaTable_VC.swift */,
 			);
 			path = Master;
 			sourceTree = "<group>";

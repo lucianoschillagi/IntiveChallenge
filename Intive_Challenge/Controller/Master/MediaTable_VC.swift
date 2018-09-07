@@ -17,82 +17,104 @@ import UIKit
 extension MediaListViewContoller: UITableViewDataSource {
 	
 	// task: determinar cuantas filas tendrá la tabla
-	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		
-		switch navigationItem.title {
-			
-		// si el título de la barra de navegación es "Explore", contar ´filteredMoviesArray´
-		case category["Music"]:
-			return mediaArray.count
-			
-		// si el título de la barra de navegación es "Popular Movies", contar ´popularMoviesArray´
-		case category["TV Show"]:
-			return mediaArray.count
-			
-		// si el título de la barra de navegación es "Top Rated Movies", contar ´topRatedMoviesArray´
-		case category["Movie"]:
-			return mediaArray.count
-			
-		default:
-			print("")
-		}
-		
-		return 0
-	}
-	
-	
+	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { return filteredMediaArray.count }
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		
 		let cellReuseId = "cell"
 		let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseId, for: indexPath) as UITableViewCell
 		
-		// get image (closure)
-		let getImage:() = iTunesApiClient.getArtworkImage { (imageData, error) in
-			if let image = UIImage(data: imageData!) {
-				DispatchQueue.main.async {
-					cell.imageView!.image = image
-					debugPrint("👈\(image)")
-				}
-			} else {
-				print(error ?? "empty error")
-			}
-		}
+	  var artwork = String()
 		
 		switch navigationItem.title {
 			
 		// si el título de la barra de navegación es "Music", mostrar ese grupo en las celdas de la tabla
 		case category["Music"]:
-			media = mediaArray[(indexPath as NSIndexPath).row]
+			media = filteredMediaArray[(indexPath as NSIndexPath).row]
 			cell.textLabel?.text = media?.tituloCancion
 			cell.detailTextLabel?.text = media?.nombreArtista
 			// imagen del disco
-			if (media?.imagenDisco) != nil { getImage }
-			
+			if let artworkUrl = media?.imagenDisco {
+				
+				artwork = artworkUrl
+				
+				if (media?.imagenDelPrograma) != nil {
+					
+					iTunesApiClient.getArtworkImage (artworkUrl) { (imageData, error) in
+						
+						if let image = UIImage(data: imageData!) {
+							DispatchQueue.main.async {
+								cell.imageView!.image = image
+								debugPrint("👈\(image)")
+							}
+						} else {
+							print(error ?? "empty error")
+						}
+					}
+					
+				}
+			}
 			
 		// si el título de la barra de navegación es "TV Show", mostrar ese grupo en las celdas de la tabla
 		case category["TV Show"]:
-			media = mediaArray[(indexPath as NSIndexPath).row]
+			media = filteredMediaArray[(indexPath as NSIndexPath).row]
 			cell.textLabel?.text = media?.tituloDelPrograma
 			cell.detailTextLabel?.text = media?.nombreDelEpisodio
 			// imagen de la serie
-			if (media?.imagenDelPrograma) != nil { getImage }
+			if let artworkUrl = media?.imagenDisco {
+				
+				artwork = artworkUrl
+				
+				if (media?.imagenDelPrograma) != nil {
+					
+					iTunesApiClient.getArtworkImage (artworkUrl) { (imageData, error) in
+						
+						if let image = UIImage(data: imageData!) {
+							DispatchQueue.main.async {
+								cell.imageView!.image = image
+								debugPrint("👈\(image)")
+							}
+						} else {
+							print(error ?? "empty error")
+						}
+					}
+					
+				}
+			}
 			
 		// si el título de la barra de navegación es "Movie", mostrar ese grupo en las celdas de la tabla
 		case category["Movie"]:
-			media = mediaArray[(indexPath as NSIndexPath).row]
+			media = filteredMediaArray[(indexPath as NSIndexPath).row]
 			cell.textLabel?.text = media?.tituloDeLaPelicula
 			cell.detailTextLabel?.text = media?.descripcionPelicula
 			// imagen de la película
-			if (media?.imagenPelicula) != nil { getImage }
+			if let artworkUrl = media?.imagenDisco {
+				
+				artwork = artworkUrl
+				
+				if (media?.imagenDelPrograma) != nil {
+					
+					iTunesApiClient.getArtworkImage (artwork) { (imageData, error) in
+						
+						if let image = UIImage(data: imageData!) {
+							DispatchQueue.main.async {
+								cell.imageView!.image = image
+								debugPrint("👈\(image)")
+							}
+						} else {
+							print(error ?? "empty error")
+						}
+					}
+					
+				}
+			}
 			
 		default:
 			print("")
 		}
 		
-		// devuelve la celda ya configurada
+		// devuelve las celdas adecuadas ya configuradas
 		return cell
-		
 	}
 	
 }
@@ -116,4 +138,4 @@ extension MediaListViewContoller: UITableViewDelegate {
 	}
 	
 	
-}
+} // end ext

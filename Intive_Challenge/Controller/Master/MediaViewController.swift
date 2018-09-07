@@ -21,7 +21,7 @@ class MediaListViewContoller: UIViewController {
 	// MARK: - Properties
 	//*****************************************************************
 	
-	var mediaArray = [iTunesMedia]()
+	//var mediaArray = [iTunesMedia]()
 	var media: iTunesMedia?
 
 	

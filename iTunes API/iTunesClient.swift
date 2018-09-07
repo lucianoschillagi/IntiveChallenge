@@ -252,15 +252,17 @@ class iTunesApiClient: NSObject {
 	
 	// MARK: Get Images
 	// task: obtener las imágenes (posters) de las películas
-	static func getArtworkImage( _ completionHandlerForArtworkImage: @escaping ( _ imageData: Data?, _ error: String?) -> Void) {
+	static func getArtworkImage(_ artworkUrl: String, _ completionHandlerForArtworkImage: @escaping ( _ imageData: Data?, _ error: String?) -> Void) {
 		
 		/* 2/3. Build the URL and configure the request */
 //		let baseURL = URL(string: TMDbClient.ParameterValues.secureBaseImageURLString)!
-//		let url = baseURL.appendingPathComponent(size).appendingPathComponent(filePath)
+//		//let url = baseURL.appendingPathComponent(size).appendingPathComponent(filePath)
 //		let request = URLRequest(url: url)
 		
+		//https://is5-ssl.mzstatic.com/image/thumb/Music/v4/10/23/6f/10236f45-754d-5310-040d-3a6bd59bbf40/source/100x100bb.jpg
+		
 		/* 1. 📞 Realiza la llamada a la API, a través de la función request() de Alamofire 🚀 */
-		Alamofire.request("https://is5-ssl.mzstatic.com/image/thumb/Music/v4/10/23/6f/10236f45-754d-5310-040d-3a6bd59bbf40/source/100x100bb.jpg").responseData { response in
+		Alamofire.request(artworkUrl).responseData { response in
 			
 			// response status code
 			if let status = response.response?.statusCode {
