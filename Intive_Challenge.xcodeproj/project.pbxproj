@@ -13,7 +13,6 @@
 		A616C3E8214094E80087FE6C /* MediaVC_Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = A616C3E7214094E80087FE6C /* MediaVC_Networking.swift */; };
 		A616C3EC2140BDEC0087FE6C /* iTunesMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = A616C3EB2140BDEC0087FE6C /* iTunesMedia.swift */; };
 		A6AC2904213F04EF009F0A04 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6AC2903213F04EF009F0A04 /* Alamofire.framework */; };
-		A6AC2906213F04EF009F0A04 /* YouTubePlayer_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6AC2905213F04EF009F0A04 /* YouTubePlayer_Swift.framework */; };
 		A6AC2915213F0B8C009F0A04 /* iTunesClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6AC2914213F0B8C009F0A04 /* iTunesClient.swift */; };
 		A6AC2917213F0BA4009F0A04 /* iTunesConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6AC2916213F0BA4009F0A04 /* iTunesConstants.swift */; };
 		A6CC40AC213F01E1004357AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CC40AB213F01E1004357AC /* AppDelegate.swift */; };
@@ -50,7 +49,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A6AC2904213F04EF009F0A04 /* Alamofire.framework in Frameworks */,
-				A6AC2906213F04EF009F0A04 /* YouTubePlayer_Swift.framework in Frameworks */,
 				998BEE534D0899D896F9D963 /* Pods_Intive_Challenge.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -258,12 +256,10 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Intive_Challenge/Pods-Intive_Challenge-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/YouTubePlayer-Swift/YouTubePlayer_Swift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YouTubePlayer_Swift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
