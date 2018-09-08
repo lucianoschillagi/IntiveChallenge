@@ -20,23 +20,22 @@ extension MediaListViewContoller:  UISearchResultsUpdating, UISearchBarDelegate 
 	// task: decirle al delegado que el index del botón de ´scope´ cambió
 	func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
 		
-		// test
-		debugPrint("decirle al controller que el índice del botón de ´scope´ cambió")
-		debugPrint("😠 el scope seleccionado es el: \(selectedScope)")
-		
 		// MARK: update navigation title item
 		switch selectedScope {
 			
 		case 0:
 			self.navigationItem.title = "Music"
+			self.view.backgroundColor = .yellow
 			debugPrint("la scope de Music actualmente")
 			
 		case 1:
 			self.navigationItem.title = "TV Show"
+			self.view.backgroundColor = .orange
 			debugPrint("la scope de TV Shows actualmente")
 
 		case 2:
 			self.navigationItem.title = "Movie"
+			self.view.backgroundColor = .cyan
 			debugPrint("la scope de Movie actualmente")
 			
 		default:
@@ -83,7 +82,6 @@ extension MediaListViewContoller:  UISearchResultsUpdating, UISearchBarDelegate 
 		}
 	}
 	
-	
 	// task: captura el 'search text' a enviar en la solicitud web cuando el usuario tapea el botón ´search´
 	func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
 		
@@ -94,7 +92,6 @@ extension MediaListViewContoller:  UISearchResultsUpdating, UISearchBarDelegate 
 			actualMedia = "music"
 		case 1:
 			actualMedia = "tvShow"
-			print("hola")
 		case 2:
 			actualMedia = "movie"
 		default:

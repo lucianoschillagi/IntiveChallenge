@@ -45,18 +45,22 @@ class MediaListViewContoller: UIViewController {
 	//*****************************************************************
 
 	override func viewDidLoad() {
-		
-		// navigation item
-		self.navigationController?.navigationBar.prefersLargeTitles = true
-		navigationItem.title = "Music"
 
+		setNavigation()
 		configureSearchAndScopeBar()
+		
 	}
 	
 	
 	//*****************************************************************
-	// MARK: - Configure UI Elements
+	// MARK: - Helpers
 	//*****************************************************************
+
+	func setNavigation() {
+		self.navigationController?.navigationBar.prefersLargeTitles = true
+		navigationItem.title = "Music"
+	}
+	
 	
 	// task: configurar la barra de búsqueda y la barra de alcance (search & scope bar)
 	func configureSearchAndScopeBar() {
@@ -64,10 +68,8 @@ class MediaListViewContoller: UIViewController {
 		// MARK: Configurando el 'Search Controller'
 		// conforma el search controller con el protocolo 'UISearchResultsUpdating'
 		searchController.searchResultsUpdater = self
-		// no oscurecer el fondo cuando se presentan los resultados
+		// oscurecer el fondo cuando se presentan los resultados
 		searchController.obscuresBackgroundDuringPresentation = false
-		
-		
 		// agrega la barra de búsqueda dentro de la barra de navegación
 		navigationItem.searchController = searchController
 		// para que no permanezca la barra de búsqueda si el usuario navega hacia otro vc
@@ -78,9 +80,6 @@ class MediaListViewContoller: UIViewController {
 		let categories = ["Music", "TV Show", "Movie"]
 		searchController.searchBar.scopeButtonTitles = categories
 	}
-	
-	// MARK: Status Bar
-	//override var prefersStatusBarHidden: Bool { return true }
 	
 	//*****************************************************************
 	// MARK: - Alert View

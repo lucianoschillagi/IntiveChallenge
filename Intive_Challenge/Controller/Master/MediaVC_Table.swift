@@ -8,12 +8,9 @@
 
 import UIKit
 
-
-
 //*****************************************************************
 // MARK: - Table View Data Source Methods
 //*****************************************************************
-
 
 extension MediaListViewContoller: UITableViewDataSource {
 	
@@ -22,6 +19,8 @@ extension MediaListViewContoller: UITableViewDataSource {
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		
+		let preImageMusicTV = UIImage(named: "preImageMusicTV")
+		let preImageMovie = UIImage(named: "preImageMovie")
 		let cellReuseId = "cell"
 		let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseId, for: indexPath) as UITableViewCell
 		
@@ -34,12 +33,14 @@ extension MediaListViewContoller: UITableViewDataSource {
 			media = filteredMediaArray[(indexPath as NSIndexPath).row]
 			cell.textLabel?.text = media?.tituloCancion
 			cell.detailTextLabel?.text = media?.nombreArtista
+			cell.imageView?.image = preImageMusicTV
+			
 			// imagen del disco
 			if let artworkUrl = media?.imagenDisco {
 				
 				artwork = artworkUrl
 				
-				if (media?.imagenDelPrograma) != nil {
+				if (media?.imagenDisco) != nil {
 					
 					iTunesApiClient.getArtworkImage (artworkUrl) { (imageData, error) in
 						
@@ -61,8 +62,10 @@ extension MediaListViewContoller: UITableViewDataSource {
 			media = filteredMediaArray[(indexPath as NSIndexPath).row]
 			cell.textLabel?.text = media?.tituloDelPrograma
 			cell.detailTextLabel?.text = media?.nombreDelEpisodio
+			cell.imageView?.image = preImageMusicTV
+	
 			// imagen de la serie
-			if let artworkUrl = media?.imagenDisco {
+			if let artworkUrl = media?.imagenDelPrograma {
 				
 				artwork = artworkUrl
 				
@@ -88,12 +91,13 @@ extension MediaListViewContoller: UITableViewDataSource {
 			media = filteredMediaArray[(indexPath as NSIndexPath).row]
 			cell.textLabel?.text = media?.tituloDeLaPelicula
 			cell.detailTextLabel?.text = media?.descripcionPelicula
+			cell.imageView?.image = preImageMovie
 			// imagen de la película
-			if let artworkUrl = media?.imagenDisco {
+			if let artworkUrl = media?.imagenPelicula {
 				
 				artwork = artworkUrl
 				
-				if (media?.imagenDelPrograma) != nil {
+				if (media?.imagenPelicula) != nil {
 					
 					iTunesApiClient.getArtworkImage (artwork) { (imageData, error) in
 						
@@ -101,7 +105,6 @@ extension MediaListViewContoller: UITableViewDataSource {
 							DispatchQueue.main.async {
 								cell.imageView?.contentMode = UIView.ContentMode.scaleAspectFit
 								cell.imageView!.image = image
-								debugPrint("👈\(image)")
 							}
 						} else {
 							print(error ?? "empty error")
@@ -130,10 +133,6 @@ extension MediaListViewContoller: UITableViewDelegate {
 	
 	// task: navegar hacia el detalle de la película (de acuerdo al listado de películas actual)
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		
-		// test
-		debugPrint("la fila \(indexPath) ha sido seleccionada")
-		
 		
 		switch navigationItem.title {
 		

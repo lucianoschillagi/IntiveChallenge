@@ -31,7 +31,6 @@
 		A616C3E7214094E80087FE6C /* MediaVC_Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaVC_Networking.swift; sourceTree = "<group>"; };
 		A616C3EB2140BDEC0087FE6C /* iTunesMedia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunesMedia.swift; sourceTree = "<group>"; };
 		A6AC2903213F04EF009F0A04 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A6AC2905213F04EF009F0A04 /* YouTubePlayer_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = YouTubePlayer_Swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6AC2914213F0B8C009F0A04 /* iTunesClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunesClient.swift; sourceTree = "<group>"; };
 		A6AC2916213F0BA4009F0A04 /* iTunesConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunesConstants.swift; sourceTree = "<group>"; };
 		A6CC40A8213F01E1004357AC /* Intive_Challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Intive_Challenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,7 +59,6 @@
 			isa = PBXGroup;
 			children = (
 				A6AC2903213F04EF009F0A04 /* Alamofire.framework */,
-				A6AC2905213F04EF009F0A04 /* YouTubePlayer_Swift.framework */,
 				30CE2A4B7AC8B3BADF16FB6C /* Pods_Intive_Challenge.framework */,
 			);
 			name = Frameworks;
