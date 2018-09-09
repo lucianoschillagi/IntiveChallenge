@@ -28,8 +28,12 @@ extension MediaListViewContoller {
 					if let resultMedia = resultMedia {
 						// si es así, se lo asigna a la propiedad ´resultMedia´
 						debugPrint("🧙🏽‍♀️\(resultMedia)")
+						if resultMedia.count == 0 {
+							self.displayAlertView("No se encontró ningún contenido", "Por favor pruebe con otras palabras de búsqueda")
+						}
+						
 						self.filteredMediaArray = resultMedia // 🔌 👏
-						//self.stopActivityIndicator()
+						self.stopActivityIndicator()
 						self.mediaTableView.reloadData()
 					}
 					

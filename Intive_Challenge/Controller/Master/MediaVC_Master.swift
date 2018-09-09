@@ -18,39 +18,38 @@ import AVKit
 
 class MediaListViewContoller: UIViewController {
 	
-
 	//*****************************************************************
 	// MARK: - Properties
 	//*****************************************************************
 	
+	/// Categories
+	let category = ["Music": "Music", "TV Show": "TV Show", "Movie": "Movie"]
 	
+	///  Search
 	let searchController = UISearchController(searchResultsController: nil)
 	var searchTextFinal = String()
 	
+	/// Media
 	var media: iTunesMedia?
 	var filteredMediaArray = [iTunesMedia]()
 	var selectedMedia: iTunesMedia?
-	
-	// MARK: Las categorías disponibles
-	let category = ["Music": "Music", "TV Show": "TV Show", "Movie": "Movie"]
 	
 	//*****************************************************************
 	// MARK: - IBOutlets
 	//*****************************************************************
 	
 	@IBOutlet var mediaTableView: UITableView!
+	@IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 	
 	//*****************************************************************
 	// MARK: - VC Life Cycle
 	//*****************************************************************
 
 	override func viewDidLoad() {
-
 		setNavigation()
 		configureSearchAndScopeBar()
-		
+		activityIndicator.isHidden = true
 	}
-	
 	
 	//*****************************************************************
 	// MARK: - Helpers
@@ -61,9 +60,10 @@ class MediaListViewContoller: UIViewController {
 		navigationItem.title = "Music"
 	}
 	
-	
 	// task: configurar la barra de búsqueda y la barra de alcance (search & scope bar)
 	func configureSearchAndScopeBar() {
+		
+		self.view.backgroundColor = .yellow
 		
 		// MARK: Configurando el 'Search Controller'
 		// conforma el search controller con el protocolo 'UISearchResultsUpdating'
@@ -79,6 +79,22 @@ class MediaListViewContoller: UIViewController {
 		searchController.searchBar.delegate = self
 		let categories = ["Music", "TV Show", "Movie"]
 		searchController.searchBar.scopeButtonTitles = categories
+	}
+	
+	//*****************************************************************
+	// MARK: - Activity Indicator
+	//*****************************************************************
+	
+	func startActivityIndicator() {
+		activityIndicator.isHidden = false
+		activityIndicator.alpha = 1.0
+		activityIndicator.startAnimating()
+	}
+	
+	func stopActivityIndicator() {
+		activityIndicator.isHidden = true
+		activityIndicator.alpha = 0.0
+		self.activityIndicator.stopAnimating()
 	}
 	
 	//*****************************************************************
@@ -98,11 +114,7 @@ class MediaListViewContoller: UIViewController {
 		if error != nil {
 			
 			let alertController = UIAlertController(title: title, message: error, preferredStyle: .alert)
-			
-			let OKAction = UIAlertAction(title: "OK", style: .default) { action in
-				
-			}
-			
+			let OKAction = UIAlertAction(title: "OK", style: .default) { action in }
 			alertController.addAction(OKAction)
 			self.present(alertController, animated: true) {}
 		}

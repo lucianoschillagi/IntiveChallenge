@@ -47,7 +47,6 @@ extension MediaListViewContoller: UITableViewDataSource {
 						if let image = UIImage(data: imageData!) {
 							DispatchQueue.main.async {
 								cell.imageView!.image = image
-								debugPrint("👈\(image)")
 							}
 						} else {
 							print(error ?? "empty error")
@@ -76,7 +75,6 @@ extension MediaListViewContoller: UITableViewDataSource {
 						if let image = UIImage(data: imageData!) {
 							DispatchQueue.main.async {
 								cell.imageView!.image = image
-								debugPrint("👈\(image)")
 							}
 						} else {
 							print(error ?? "empty error")

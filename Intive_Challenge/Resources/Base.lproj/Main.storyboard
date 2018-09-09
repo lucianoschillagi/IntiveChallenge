@@ -67,24 +67,33 @@
                                     <outlet property="delegate" destination="AT4-5e-9rQ" id="1b9-p7-baa"/>
                                 </connections>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="fB1-WO-9hJ">
+                                <rect key="frame" x="0.0" y="323" width="375" height="21"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="fB1-WO-9hJ" firstAttribute="trailing" secondItem="coc-GC-ssR" secondAttribute="trailing" id="4Eu-M1-2tq"/>
                             <constraint firstAttribute="trailing" secondItem="coc-GC-ssR" secondAttribute="trailing" id="JLt-uZ-cxJ"/>
+                            <constraint firstItem="fB1-WO-9hJ" firstAttribute="centerX" secondItem="coc-GC-ssR" secondAttribute="centerX" id="QFM-tv-c06"/>
                             <constraint firstItem="coc-GC-ssR" firstAttribute="top" secondItem="829-jh-fen" secondAttribute="top" id="Qja-ed-UiT"/>
+                            <constraint firstItem="fB1-WO-9hJ" firstAttribute="centerY" secondItem="cEU-wp-1QI" secondAttribute="centerY" id="TZO-pS-wlo"/>
+                            <constraint firstItem="fB1-WO-9hJ" firstAttribute="top" secondItem="829-jh-fen" secondAttribute="top" constant="259" id="hfD-qL-2qS"/>
                             <constraint firstItem="coc-GC-ssR" firstAttribute="leading" secondItem="cEU-wp-1QI" secondAttribute="leading" id="mam-XZ-wTq"/>
                             <constraint firstItem="coc-GC-ssR" firstAttribute="bottom" secondItem="829-jh-fen" secondAttribute="bottom" id="qVC-gw-kku"/>
+                            <constraint firstItem="fB1-WO-9hJ" firstAttribute="leading" secondItem="coc-GC-ssR" secondAttribute="leading" id="wb7-ry-4Ix"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="829-jh-fen"/>
                     </view>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="3nI-Vw-dO0"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="fB1-WO-9hJ" id="hz6-no-UMy"/>
                         <outlet property="mediaTableView" destination="coc-GC-ssR" id="dy8-8E-hHQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nH9-d0-8fI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="912.79999999999995" y="-1.3493253373313345"/>
+            <point key="canvasLocation" x="834" y="-1"/>
         </scene>
     </scenes>
 </document>

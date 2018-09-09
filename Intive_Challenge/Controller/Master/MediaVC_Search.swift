@@ -85,6 +85,9 @@ extension MediaListViewContoller:  UISearchResultsUpdating, UISearchBarDelegate 
 	// task: captura el 'search text' a enviar en la solicitud web cuando el usuario tapea el botón ´search´
 	func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
 		
+		startActivityIndicator()
+		self.view.backgroundColor = .red
+		
 		var actualMedia = String()
 		
 		switch searchBar.selectedScopeButtonIndex {
