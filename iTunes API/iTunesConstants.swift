@@ -11,7 +11,7 @@
 import Foundation
 
 /* Abstract:
-Almacena valores a usar en las api calls.
+Almacena valores constantes a usar en las solicitudes web.
 */
 
 extension iTunesApiClient {
@@ -19,18 +19,11 @@ extension iTunesApiClient {
 	//*****************************************************************
 	// MARK: - Constants
 	//*****************************************************************
-	
-	//https://itunes.apple.com/search?term=the+goonies&media=movie
 
 	struct Constants {
-		
-		// MARK: URLs
 		static let ApiScheme = "https"
 		static let ApiHost = "itunes.apple.com"
 		static let ApiPath = "/search"
-		
-		// MARK: YouTube
-		static let YouTubeBaseURL = "https://www.youtube.com/watch?v="
 	}
 	
 	//*****************************************************************
@@ -47,19 +40,9 @@ extension iTunesApiClient {
 	//*****************************************************************
 	
 	struct ParameterValues {
-		
 		static let Music = "music"
 		static let Movie = "movie"
 		static let TVShow = "tvShow"
-	}
-	
-	//*****************************************************************
-	// MARK: - JSON Body Keys
-	//*****************************************************************
-	
-	// claves para extraer los valores deseados
-	struct JSONBodyKeys {
-
 	}
 	
 	//*****************************************************************

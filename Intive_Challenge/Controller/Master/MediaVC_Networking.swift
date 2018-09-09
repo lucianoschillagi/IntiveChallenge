@@ -6,6 +6,8 @@
 //  Copyright © 2018 luko. All rights reserved.
 //
 
+/* Controller */
+
 import UIKit
 
 extension MediaListViewContoller {
@@ -15,7 +17,6 @@ extension MediaListViewContoller {
 	//*****************************************************************
 	
 	// MARK: Get Search Text Movies
-	// task: obtener, mediante una solicitud web a la API de TMDb, el array de películas filtradas por texto
 	func getSearchTextMedia(_ media: String, _ term: String) {
 		
 		// networking ⬇ : Media Content
@@ -27,7 +28,6 @@ extension MediaListViewContoller {
 					// comprueba si el 'resultMedia' recibido contiene algún valor
 					if let resultMedia = resultMedia {
 						// si es así, se lo asigna a la propiedad ´resultMedia´
-						debugPrint("🧙🏽‍♀️\(resultMedia)")
 						if resultMedia.count == 0 {
 							self.displayAlertView(title: "No se encontró ningún contenido", message: "Por favor pruebe con otras palabras de búsqueda")
 						}

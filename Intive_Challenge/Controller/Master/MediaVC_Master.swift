@@ -13,7 +13,7 @@ import AVFoundation
 import AVKit
 
 /* Abstract:
-
+Una pantalla que permite buscar por distintos tipo de contenido en iTunes: music, tv show y movie.
 */
 
 class MediaListViewContoller: UIViewController {
@@ -101,16 +101,9 @@ class MediaListViewContoller: UIViewController {
 	// MARK: - Alert View
 	//*****************************************************************
 	
-	/**
-	Muestra al usuario un mensaje acerca de porqué la solicitud falló.
-	
-	- Parameter title: El título del error.
-	- Parameter message: El mensaje acerca del error.
-	
-	*/
+	// task: mostrar un mensaje al usuario indicándole un error
 	func displayAlertView(title: String?, message: String?) {
 		
-		// si ocurre un error en la solicitud, mostrar una vista de alerta!
 		if message != nil {
 			let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
 			let OKAction = UIAlertAction(title: "OK", style: .default) { action in }
@@ -123,7 +116,7 @@ class MediaListViewContoller: UIViewController {
 	// MARK: - Segue -> Trailer or Song
 	//*****************************************************************
 	
-	// task: ---
+	// task: mostrar el trailer seleccionado
 	func showTrailer() {
 		guard let videoString = selectedMedia?.trailerPelicula else { return }
 		guard let videoURL = URL(string: videoString) else { return }
@@ -135,7 +128,6 @@ class MediaListViewContoller: UIViewController {
 			playerViewController.player?.play()
 		}
 	}
-	
 	
 	// task: reproducir la canción seleccionada
 	func playSong() {

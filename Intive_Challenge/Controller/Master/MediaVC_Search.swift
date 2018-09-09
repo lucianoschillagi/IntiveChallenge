@@ -6,6 +6,8 @@
 //  Copyright © 2018 luko. All rights reserved.
 //
 
+/* Controller */
+
 import UIKit
 
 //*****************************************************************
@@ -14,7 +16,6 @@ import UIKit
 
 extension MediaListViewContoller:  UISearchResultsUpdating, UISearchBarDelegate  {
 	
-	// task: actualizar los resultados según la búsqueda actual
 	func updateSearchResults(for searchController: UISearchController) {}
 	
 	// task: decirle al delegado que el index del botón de ´scope´ cambió
@@ -26,32 +27,21 @@ extension MediaListViewContoller:  UISearchResultsUpdating, UISearchBarDelegate 
 		case 0:
 			self.navigationItem.title = "Music"
 			self.view.backgroundColor = .yellow
-			debugPrint("la scope de Music actualmente")
 			
 		case 1:
 			self.navigationItem.title = "TV Show"
 			self.view.backgroundColor = .orange
-			debugPrint("la scope de TV Shows actualmente")
 
 		case 2:
 			self.navigationItem.title = "Movie"
 			self.view.backgroundColor = .cyan
-			debugPrint("la scope de Movie actualmente")
 			
 		default:
 			print("")
 		}
 	}
 	
-	// task: comprobar si la barra de búsqueda está vacía o no
-	func searchBarIsEmpty() -> Bool {
-		// Returns true if the text is empty or nil
-		debugPrint("LA BARRA DE BÚSQUEDA TIENE TEXTO")
-		return searchController.searchBar.text?.isEmpty ?? true
-	}
-	
 	// task: le dice al controlador que el usuario cambió el texto de la barra de búsqueda
-	// cada vez que el texto de búsqueda cambia se cancela la descarga actual y empieza una nueva 👈
 	func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
 		
 		debugPrint("El texto ingresado en le barra de búsqueda es: \(searchText)")

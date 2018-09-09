@@ -6,6 +6,8 @@
 //  Copyright © 2018 luko. All rights reserved.
 //
 
+/* Controller */
+
 import UIKit
 
 //*****************************************************************
@@ -17,6 +19,7 @@ extension MediaListViewContoller: UITableViewDataSource {
 	// task: determinar cuantas filas tendrá la tabla
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { return filteredMediaArray.count }
 	
+	// task: configurar las celdas a mostrar
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		
 		let preImageMusicTV = UIImage(named: "preImageMusicTV")
@@ -149,7 +152,6 @@ extension MediaListViewContoller: UITableViewDelegate {
 			default:
 				print("")
 			}
-
 	}
 	
 

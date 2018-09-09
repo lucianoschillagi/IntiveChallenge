@@ -11,8 +11,7 @@
 import Foundation
 
 /* Abstract:
-Un objeto preparado para recibir los valores necesarios para construir la lógica de la aplicación.
-El objeto representa un media (puede ser tanto un 'tv show', como una 'película' o una 'música'
+El objeto representa un media (puede ser tanto un 'tv show', como una 'película' o una 'música')
 */
 
 struct iTunesMedia {
