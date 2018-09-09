@@ -108,12 +108,11 @@ class MediaListViewContoller: UIViewController {
 	- Parameter message: El mensaje acerca del error.
 	
 	*/
-	func displayAlertView(_ title: String?, _ error: String?) {
+	func displayAlertView(title: String?, message: String?) {
 		
 		// si ocurre un error en la solicitud, mostrar una vista de alerta!
-		if error != nil {
-			
-			let alertController = UIAlertController(title: title, message: error, preferredStyle: .alert)
+		if message != nil {
+			let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
 			let OKAction = UIAlertAction(title: "OK", style: .default) { action in }
 			alertController.addAction(OKAction)
 			self.present(alertController, animated: true) {}

@@ -29,7 +29,7 @@ extension MediaListViewContoller {
 						// si es así, se lo asigna a la propiedad ´resultMedia´
 						debugPrint("🧙🏽‍♀️\(resultMedia)")
 						if resultMedia.count == 0 {
-							self.displayAlertView("No se encontró ningún contenido", "Por favor pruebe con otras palabras de búsqueda")
+							self.displayAlertView(title: "No se encontró ningún contenido", message: "Por favor pruebe con otras palabras de búsqueda")
 						}
 						
 						self.filteredMediaArray = resultMedia // 🔌 👏
@@ -39,7 +39,7 @@ extension MediaListViewContoller {
 					
 				} else {
 					// si devuelve un error
-					self.displayAlertView("Error Request", error)
+					self.displayAlertView(title: "Error Request", message: error)
 				}
 			}
 		}
