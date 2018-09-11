@@ -28,3 +28,7 @@ iTunes Searcher es una aplicación que permite buscar canciones, series de TV o 
 * Once the project is downloaded, open the .xcworkspace file from the folder.
 * Run the project either using the iPhone simulator or your device. I recommend running the project on the latest iPhone device. It should be compiled with the latest version of Xcode.
 * If you choose to download it on your device, please plug in your device to your computer and make the device target your device model. Then click 'run'.
+
+### Resources:
+
+[https://github.com/gilesvangruisen/Swift-YouTube-Player]()
