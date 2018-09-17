@@ -62,8 +62,7 @@ class MediaListViewContoller: UIViewController {
 	
 	// task: configurar la barra de búsqueda y la barra de alcance (search & scope bar)
 	func configureSearchAndScopeBar() {
-		
-		self.view.backgroundColor = .yellow
+
 		
 		// MARK: Configurando el 'Search Controller'
 		// conforma el search controller con el protocolo 'UISearchResultsUpdating'
@@ -87,14 +86,15 @@ class MediaListViewContoller: UIViewController {
 	
 	func startActivityIndicator() {
 		activityIndicator.isHidden = false
-		activityIndicator.alpha = 1.0
+		activityIndicator.alpha = 0.5
 		activityIndicator.startAnimating()
+		self.view.alpha = 0.7
 	}
 	
 	func stopActivityIndicator() {
 		activityIndicator.isHidden = true
-		activityIndicator.alpha = 0.0
 		self.activityIndicator.stopAnimating()
+		self.view.alpha = 1.0
 	}
 	
 	//*****************************************************************

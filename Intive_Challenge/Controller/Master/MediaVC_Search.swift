@@ -26,15 +26,12 @@ extension MediaListViewContoller:  UISearchResultsUpdating, UISearchBarDelegate 
 			
 		case 0:
 			self.navigationItem.title = "Music"
-			self.view.backgroundColor = .yellow
 			
 		case 1:
 			self.navigationItem.title = "TV Show"
-			self.view.backgroundColor = .orange
 
 		case 2:
 			self.navigationItem.title = "Movie"
-			self.view.backgroundColor = .cyan
 			
 		default:
 			print("")
@@ -76,7 +73,6 @@ extension MediaListViewContoller:  UISearchResultsUpdating, UISearchBarDelegate 
 	func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
 		
 		startActivityIndicator()
-		self.view.backgroundColor = .red
 		
 		var actualMedia = String()
 		

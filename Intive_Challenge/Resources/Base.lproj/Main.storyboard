@@ -68,20 +68,17 @@
                                 </connections>
                             </tableView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="fB1-WO-9hJ">
-                                <rect key="frame" x="0.0" y="323" width="375" height="21"/>
+                                <rect key="frame" x="177.5" y="355.5" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="fB1-WO-9hJ" firstAttribute="trailing" secondItem="coc-GC-ssR" secondAttribute="trailing" id="4Eu-M1-2tq"/>
                             <constraint firstAttribute="trailing" secondItem="coc-GC-ssR" secondAttribute="trailing" id="JLt-uZ-cxJ"/>
-                            <constraint firstItem="fB1-WO-9hJ" firstAttribute="centerX" secondItem="coc-GC-ssR" secondAttribute="centerX" id="QFM-tv-c06"/>
                             <constraint firstItem="coc-GC-ssR" firstAttribute="top" secondItem="829-jh-fen" secondAttribute="top" id="Qja-ed-UiT"/>
-                            <constraint firstItem="fB1-WO-9hJ" firstAttribute="centerY" secondItem="cEU-wp-1QI" secondAttribute="centerY" id="TZO-pS-wlo"/>
-                            <constraint firstItem="fB1-WO-9hJ" firstAttribute="top" secondItem="829-jh-fen" secondAttribute="top" constant="259" id="hfD-qL-2qS"/>
+                            <constraint firstItem="fB1-WO-9hJ" firstAttribute="centerX" secondItem="coc-GC-ssR" secondAttribute="centerX" id="Trz-J0-rZe"/>
+                            <constraint firstItem="fB1-WO-9hJ" firstAttribute="centerY" secondItem="coc-GC-ssR" secondAttribute="centerY" id="kuq-Cx-KuM"/>
                             <constraint firstItem="coc-GC-ssR" firstAttribute="leading" secondItem="cEU-wp-1QI" secondAttribute="leading" id="mam-XZ-wTq"/>
                             <constraint firstItem="coc-GC-ssR" firstAttribute="bottom" secondItem="829-jh-fen" secondAttribute="bottom" id="qVC-gw-kku"/>
-                            <constraint firstItem="fB1-WO-9hJ" firstAttribute="leading" secondItem="coc-GC-ssR" secondAttribute="leading" id="wb7-ry-4Ix"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="829-jh-fen"/>
                     </view>
