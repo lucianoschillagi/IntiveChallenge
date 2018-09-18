@@ -118,7 +118,7 @@ class MediaListViewContoller: UIViewController {
 	
 	// task: mostrar el trailer seleccionado
 	func showTrailer() {
-		guard let videoString = selectedMedia?.trailerPelicula else { return }
+		guard let videoString = selectedMedia?.movieTrailer else { return }
 		guard let videoURL = URL(string: videoString) else { return }
 		let player = AVPlayer(url: videoURL)
 		let playerViewController = AVPlayerViewController()
@@ -131,7 +131,7 @@ class MediaListViewContoller: UIViewController {
 	
 	// task: reproducir la canción seleccionada
 	func playSong() {
-		guard let songString = selectedMedia?.reproducirCancion else { return }
+		guard let songString = selectedMedia?.songPlay else { return }
 		guard let songUrl = URL(string: songString) else { return }
 		let player = AVPlayer(url: songUrl)
 		let playerViewController = AVPlayerViewController()

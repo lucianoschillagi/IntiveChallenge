@@ -35,7 +35,6 @@ class iTunesApiClient: NSObject {
 	//*****************************************************************
 	
 	// MARK: Get Media for Search
-	// task: --
 	static func getMediaForTermAndMediaString(_ media: String, _ term: String?, completionHandlerFor_TermAndMediaString: @escaping (_ success: Bool, _ result: [iTunesMedia]?, _ error: String?) -> Void)  {
 		
 		/* 1. 📞 Realiza la llamada a la API, a través de la función request() de Alamofire 🚀 */

@@ -50,12 +50,11 @@ extension iTunesApiClient {
 	//*****************************************************************
 	
 	struct JSONResponseKeys {
-		
 		static let TrackName = "trackName"
 		static let LongDescription = "longDescription"
 		static let ArtworkUrl = "artworkUrl100"
 		static let ArtistName = "artistName"
-		
+		static let PreviewUrl = "previewUrl"
 	}
 }
 

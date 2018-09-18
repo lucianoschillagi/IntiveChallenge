@@ -21,21 +21,21 @@ struct iTunesMedia {
 	//*****************************************************************
 	
 	// tv show
-	let tituloDelPrograma: String? // 'artistName'
-	let nombreDelEpisodio: String? // 'trackName'
-	let imagenDelPrograma: String? // 'artworkUrl100'
-	let descripcionEpisodio: String? // 'longDescription'
-	let trailerEpisodio: String? // 'previewUrl'
+	let tvShowTitle: String? // 'artistName'
+	let tvShowEpisodeName: String? // 'trackName'
+	let tvShowArtwork: String? // 'artworkUrl100'
+	let tvShowEpisodeDescription: String? // 'longDescription'
+	let tvShowEpisodeTrailer: String? // 'previewUrl'
 	// movie
-	let tituloDeLaPelicula: String? // 'trackName'
-	let descripcionPelicula: String? // 'longDescription'
-	let imagenPelicula: String? // 'artworkUrl100'
-	let trailerPelicula: String? // 'previewUrl'
+	let movieTitle: String? // 'trackName'
+	let movieDescription: String? // 'longDescription'
+	let movieArtwork: String? // 'artworkUrl100'
+	let movieTrailer: String? // 'previewUrl'
 	// music
-	let tituloCancion: String? // 'trackName'
-	let nombreArtista: String? // 'artistName'
-	let imagenDisco: String? // 'artworkUrl100'
-	let reproducirCancion: String? // 'previewUrl'
+	let songTitle: String? // 'trackName'
+	let songArtistName: String? // 'artistName'
+	let songArtwork: String? // 'artworkUrl100'
+	let songPlay: String? // 'previewUrl'
 	
 	//*****************************************************************
 	// MARK: - Initializers
@@ -44,31 +44,29 @@ struct iTunesMedia {
 	// construye el objeto 'iTunesMedia' desde un diccionario  👈
 	init(dictionary: [String:AnyObject]) {
 		// tv show
-		tituloDelPrograma = dictionary["artistName"] as? String
-		nombreDelEpisodio = dictionary["trackName"] as? String
-		imagenDelPrograma = dictionary["artworkUrl100"] as? String
-		descripcionEpisodio = dictionary["longDescription"] as? String
-		trailerEpisodio = dictionary["previewUrl"] as? String
+		tvShowTitle = dictionary[iTunesApiClient.JSONResponseKeys.ArtistName] as? String
+		tvShowEpisodeName = dictionary[iTunesApiClient.JSONResponseKeys.TrackName] as? String
+		tvShowArtwork = dictionary[iTunesApiClient.JSONResponseKeys.ArtworkUrl] as? String
+		tvShowEpisodeDescription = dictionary[iTunesApiClient.JSONResponseKeys.LongDescription] as? String
+		tvShowEpisodeTrailer = dictionary[iTunesApiClient.JSONResponseKeys.PreviewUrl] as? String
 		
 		// movie
-		tituloDeLaPelicula = dictionary["trackName"] as? String
-		descripcionPelicula = dictionary["longDescription"] as? String
-		imagenPelicula = dictionary["artworkUrl100"] as? String
-		trailerPelicula = dictionary["previewUrl"] as? String
+		movieTitle = dictionary[iTunesApiClient.JSONResponseKeys.TrackName] as? String
+		movieDescription = dictionary[iTunesApiClient.JSONResponseKeys.LongDescription] as? String
+		movieArtwork = dictionary[iTunesApiClient.JSONResponseKeys.ArtworkUrl] as? String
+		movieTrailer = dictionary[iTunesApiClient.JSONResponseKeys.PreviewUrl] as? String
 
 		// music
-		tituloCancion = dictionary["trackName"] as? String
-		nombreArtista = dictionary["artistName"] as? String
-		imagenDisco = dictionary["artworkUrl100"] as? String
-		reproducirCancion = dictionary["previewUrl"] as? String
-
+		songTitle = dictionary[iTunesApiClient.JSONResponseKeys.TrackName] as? String
+		songArtistName = dictionary[iTunesApiClient.JSONResponseKeys.ArtistName] as? String
+		songArtwork = dictionary[iTunesApiClient.JSONResponseKeys.ArtworkUrl] as? String
+		songPlay = dictionary[iTunesApiClient.JSONResponseKeys.PreviewUrl] as? String
 	}
 	
 	//*****************************************************************
 	// MARK: - Methods
 	//*****************************************************************
 	
-	// task:
 	static func mediaFromResults(_ mediaResults: [[String:AnyObject]]) -> [iTunesMedia] {
 		
 		var mediaArray = [iTunesMedia]()

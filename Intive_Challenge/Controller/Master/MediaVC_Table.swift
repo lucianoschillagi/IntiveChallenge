@@ -34,16 +34,16 @@ extension MediaListViewContoller: UITableViewDataSource {
 		// si el título de la barra de navegación es "Music", mostrar ese grupo en las celdas de la tabla
 		case category["Music"]:
 			media = filteredMediaArray[(indexPath as NSIndexPath).row]
-			cell.textLabel?.text = media?.tituloCancion
-			cell.detailTextLabel?.text = media?.nombreArtista
+			cell.textLabel?.text = media?.songTitle
+			cell.detailTextLabel?.text = media?.songArtistName
 			cell.imageView?.image = preImageMusicTV
 			
 			// imagen del disco
-			if let artworkUrl = media?.imagenDisco {
+			if let artworkUrl = media?.songArtwork {
 				
 				artwork = artworkUrl
 				
-				if (media?.imagenDisco) != nil {
+				if (media?.songArtwork) != nil {
 					
 					iTunesApiClient.getArtworkImage (artworkUrl) { (imageData, error) in
 						
@@ -62,16 +62,16 @@ extension MediaListViewContoller: UITableViewDataSource {
 		// si el título de la barra de navegación es "TV Show", mostrar ese grupo en las celdas de la tabla
 		case category["TV Show"]:
 			media = filteredMediaArray[(indexPath as NSIndexPath).row]
-			cell.textLabel?.text = media?.tituloDelPrograma
-			cell.detailTextLabel?.text = media?.nombreDelEpisodio
+			cell.textLabel?.text = media?.tvShowTitle
+			cell.detailTextLabel?.text = media?.tvShowEpisodeName
 			cell.imageView?.image = preImageMusicTV
 	
 			// imagen de la serie
-			if let artworkUrl = media?.imagenDelPrograma {
+			if let artworkUrl = media?.tvShowArtwork {
 				
 				artwork = artworkUrl
 				
-				if (media?.imagenDelPrograma) != nil {
+				if (media?.tvShowArtwork) != nil {
 					
 					iTunesApiClient.getArtworkImage (artworkUrl) { (imageData, error) in
 						
@@ -90,15 +90,15 @@ extension MediaListViewContoller: UITableViewDataSource {
 		// si el título de la barra de navegación es "Movie", mostrar ese grupo en las celdas de la tabla
 		case category["Movie"]:
 			media = filteredMediaArray[(indexPath as NSIndexPath).row]
-			cell.textLabel?.text = media?.tituloDeLaPelicula
-			cell.detailTextLabel?.text = media?.descripcionPelicula
+			cell.textLabel?.text = media?.movieTitle
+			cell.detailTextLabel?.text = media?.movieDescription
 			cell.imageView?.image = preImageMovie
 			// imagen de la película
-			if let artworkUrl = media?.imagenPelicula {
+			if let artworkUrl = media?.movieArtwork {
 				
 				artwork = artworkUrl
 				
-				if (media?.imagenPelicula) != nil {
+				if (media?.movieArtwork) != nil {
 					
 					iTunesApiClient.getArtworkImage (artwork) { (imageData, error) in
 						
